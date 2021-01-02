@@ -40,10 +40,11 @@
   ],
   "relationships": [
     {
-      "relationshipType": "one-to-many",
+      "relationshipType": "many-to-one",
       "otherEntityName": "wallet",
       "otherEntityRelationshipName": "topUp",
-      "relationshipName": "topup"
+      "relationshipName": "topup",
+      "otherEntityField": "id"
     }
   ],
   "changelogDate": "20210102082349",

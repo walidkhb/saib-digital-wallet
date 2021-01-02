@@ -44,22 +44,10 @@
                 <dd>
                     <span>{{ wallet.identification }}</span>
                 </dd>
-                <dt><span jhiTranslate="saibDigitalWalletApp.wallet.topUp">Top Up</span></dt>
+                <dt><span jhiTranslate="saibDigitalWalletApp.wallet.wallet">Wallet</span></dt>
                 <dd>
-                    <div *ngIf="wallet.topUp">
-                        <a [routerLink]="['/top-up', wallet.topUp?.id, 'view']">{{ wallet.topUp?.id }}</a>
-                    </div>
-                </dd>
-                <dt><span jhiTranslate="saibDigitalWalletApp.wallet.refund">Refund</span></dt>
-                <dd>
-                    <div *ngIf="wallet.refund">
-                        <a [routerLink]="['/refund', wallet.refund?.id, 'view']">{{ wallet.refund?.id }}</a>
-                    </div>
-                </dd>
-                <dt><span jhiTranslate="saibDigitalWalletApp.wallet.peerToPeer">Peer To Peer</span></dt>
-                <dd>
-                    <div *ngIf="wallet.peerToPeer">
-                        <a [routerLink]="['/peer-to-peer', wallet.peerToPeer?.id, 'view']">{{ wallet.peerToPeer?.id }}</a>
+                    <div *ngIf="wallet.wallet">
+                        <a [routerLink]="['/customer', wallet.wallet?.id, 'view']">{{ wallet.wallet?.id }}</a>
                     </div>
                 </dd>
             </dl>

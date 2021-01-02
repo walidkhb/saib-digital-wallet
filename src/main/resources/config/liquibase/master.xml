@@ -32,6 +32,9 @@
     <include file="config/liquibase/changelog/20210102082049_added_entity_constraints_KycTransactions.xml" relativeToChangelogFile="false"/>
     <include file="config/liquibase/changelog/20210102082149_added_entity_constraints_KycPersonal.xml" relativeToChangelogFile="false"/>
     <include file="config/liquibase/changelog/20210102082549_added_entity_constraints_Wallet.xml" relativeToChangelogFile="false"/>
+    <include file="config/liquibase/changelog/20210102082249_added_entity_constraints_PeerToPeer.xml" relativeToChangelogFile="false"/>
+    <include file="config/liquibase/changelog/20210102082349_added_entity_constraints_TopUp.xml" relativeToChangelogFile="false"/>
+    <include file="config/liquibase/changelog/20210102082449_added_entity_constraints_Refund.xml" relativeToChangelogFile="false"/>
     <!-- jhipster-needle-liquibase-add-constraints-changelog - JHipster will add liquibase constraints changelogs here -->
     <!-- jhipster-needle-liquibase-add-incremental-changelog - JHipster will add incremental liquibase changelogs here -->
 </databaseChangeLog>

@@ -24,6 +24,12 @@
                 <dd>
                     <span>{{ refund.narativeLine2 }}</span>
                 </dd>
+                <dt><span jhiTranslate="saibDigitalWalletApp.refund.refund">Refund</span></dt>
+                <dd>
+                    <div *ngIf="refund.refund">
+                        <a [routerLink]="['/wallet', refund.refund?.id, 'view']">{{ refund.refund?.id }}</a>
+                    </div>
+                </dd>
             </dl>
 
             <button type="submit"

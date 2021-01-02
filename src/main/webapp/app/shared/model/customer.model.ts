@@ -1,5 +1,4 @@
 import { Moment } from 'moment';
-import { IWallet } from 'app/shared/model/wallet.model';
 
 export interface ICustomer {
   id?: number;
@@ -22,7 +21,6 @@ export interface ICustomer {
   maritalStatus?: string;
   customerId?: string;
   profileStatus?: string;
-  wallet?: IWallet;
 }
 
 export class Customer implements ICustomer {
@@ -46,7 +44,6 @@ export class Customer implements ICustomer {
     public idExpiryDate?: string,
     public maritalStatus?: string,
     public customerId?: string,
-    public profileStatus?: string,
-    public wallet?: IWallet
+    public profileStatus?: string
   ) {}
 }

@@ -28,7 +28,7 @@
                 <constraints nullable="true" />
             </column>
             <column name="kyc_personal_id" type="bigint">
-                <constraints unique="true" nullable="true" uniqueConstraintName="ux_kyc_personal_kyc_personal_id" />
+                <constraints nullable="true" />
             </column>
             <!-- jhipster-needle-liquibase-add-column - JHipster will add columns here -->
         </createTable>

@@ -60,7 +60,6 @@
                     <th scope="col" ><span jhiTranslate="saibDigitalWalletApp.customer.maritalStatus">Marital Status</span></th>
                     <th scope="col" ><span jhiTranslate="saibDigitalWalletApp.customer.customerId">Customer Id</span></th>
                     <th scope="col" ><span jhiTranslate="saibDigitalWalletApp.customer.profileStatus">Profile Status</span></th>
-                    <th scope="col" ><span jhiTranslate="saibDigitalWalletApp.customer.wallet">Wallet</span></th>
                     <th scope="col"></th>
                 </tr>
             </thead>
@@ -86,11 +85,6 @@
                     <td>{{ customer.maritalStatus }}</td>
                     <td>{{ customer.customerId }}</td>
                     <td>{{ customer.profileStatus }}</td>
-                    <td>
-                        <div *ngIf="customer.wallet">
-                            <a [routerLink]="['/wallet', customer.wallet?.id, 'view']" >{{ customer.wallet?.id }}</a>
-                        </div>
-                    </td>
                     <td class="text-right">
                         <div class="btn-group">
                             <button type="submit"

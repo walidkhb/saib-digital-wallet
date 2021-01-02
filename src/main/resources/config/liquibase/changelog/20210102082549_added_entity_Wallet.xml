@@ -42,13 +42,7 @@
             <column name="identification" type="varchar(255)">
                 <constraints nullable="true" />
             </column>
-            <column name="top_up_id" type="bigint">
-                <constraints nullable="true" />
-            </column>
-            <column name="refund_id" type="bigint">
-                <constraints nullable="true" />
-            </column>
-            <column name="peer_to_peer_id" type="bigint">
+            <column name="wallet_id" type="bigint">
                 <constraints nullable="true" />
             </column>
             <!-- jhipster-needle-liquibase-add-column - JHipster will add columns here -->

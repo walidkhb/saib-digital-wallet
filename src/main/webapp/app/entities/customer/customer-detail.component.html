@@ -84,12 +84,6 @@
                 <dd>
                     <span>{{ customer.profileStatus }}</span>
                 </dd>
-                <dt><span jhiTranslate="saibDigitalWalletApp.customer.wallet">Wallet</span></dt>
-                <dd>
-                    <div *ngIf="customer.wallet">
-                        <a [routerLink]="['/wallet', customer.wallet?.id, 'view']">{{ customer.wallet?.id }}</a>
-                    </div>
-                </dd>
             </dl>
 
             <button type="submit"

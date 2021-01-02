@@ -32,6 +32,12 @@
                 <dd>
                     <span>{{ peerToPeer.paymentDetails }}</span>
                 </dd>
+                <dt><span jhiTranslate="saibDigitalWalletApp.peerToPeer.peertopeer">Peertopeer</span></dt>
+                <dd>
+                    <div *ngIf="peerToPeer.peertopeer">
+                        <a [routerLink]="['/wallet', peerToPeer.peertopeer?.id, 'view']">{{ peerToPeer.peertopeer?.id }}</a>
+                    </div>
+                </dd>
             </dl>
 
             <button type="submit"

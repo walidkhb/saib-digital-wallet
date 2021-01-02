@@ -4,7 +4,6 @@ import { HttpResponse } from '@angular/common/http';
 import { FormBuilder, Validators } from '@angular/forms';
 import { ActivatedRoute } from '@angular/router';
 import { Observable } from 'rxjs';
-import { map } from 'rxjs/operators';
 
 import { IKycIncome, KycIncome } from 'app/shared/model/kyc-income.model';
 import { KycIncomeService } from './kyc-income.service';
@@ -17,7 +16,7 @@ import { KycService } from 'app/entities/kyc/kyc.service';
 })
 export class KycIncomeUpdateComponent implements OnInit {
   isSaving = false;
-  kycincomes: IKyc[] = [];
+  kycs: IKyc[] = [];
 
   editForm = this.fb.group({
     id: [],
@@ -39,27 +38,7 @@ export class KycIncomeUpdateComponent implements OnInit {
     this.activatedRoute.data.subscribe(({ kycIncome }) => {
       this.updateForm(kycIncome);
 
-      this.kycService
-        .query({ filter: 'kycincome-is-null' })
-        .pipe(
-          map((res: HttpResponse<IKyc[]>) => {
-            return res.body || [];
-          })
-        )
-        .subscribe((resBody: IKyc[]) => {
-          if (!kycIncome.kycIncome || !kycIncome.kycIncome.id) {
-            this.kycincomes = resBody;
-          } else {
-            this.kycService
-              .find(kycIncome.kycIncome.id)
-              .pipe(
-                map((subRes: HttpResponse<IKyc>) => {
-                  return subRes.body ? [subRes.body].concat(resBody) : resBody;
-                })
-              )
-              .subscribe((concatRes: IKyc[]) => (this.kycincomes = concatRes));
-          }
-        });
+      this.kycService.query().subscribe((res: HttpResponse<IKyc[]>) => (this.kycs = res.body || []));
     });
   }
 

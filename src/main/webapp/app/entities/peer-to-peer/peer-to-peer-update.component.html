@@ -46,6 +46,14 @@
                     <input type="text" class="form-control" name="paymentDetails" id="field_paymentDetails"
                            formControlName="paymentDetails"/>
                 </div>
+
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="saibDigitalWalletApp.peerToPeer.peertopeer" for="field_peertopeer">Peertopeer</label>
+                    <select class="form-control" id="field_peertopeer" name="peertopeer" formControlName="peertopeer">
+                        <option [ngValue]="null"></option>
+                        <option [ngValue]="walletOption.id === editForm.get('peertopeer')!.value?.id ? editForm.get('peertopeer')!.value : walletOption" *ngFor="let walletOption of wallets; trackBy: trackById">{{ walletOption.id }}</option>
+                    </select>
+                </div>
             </div>
 
             <div>

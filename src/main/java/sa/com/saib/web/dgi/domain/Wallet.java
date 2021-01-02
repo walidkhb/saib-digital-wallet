@@ -8,8 +8,6 @@ import javax.persistence.*;
 
 import org.springframework.data.elasticsearch.annotations.FieldType;
 import java.io.Serializable;
-import java.util.HashSet;
-import java.util.Set;
 
 /**
  * A Wallet.
@@ -54,21 +52,9 @@ public class Wallet implements Serializable {
     @Column(name = "identification")
     private String identification;
 
-    @OneToMany(mappedBy = "wallet")
-    @Cache(usage = CacheConcurrencyStrategy.READ_WRITE)
-    private Set<Customer> wallets = new HashSet<>();
-
     @ManyToOne
-    @JsonIgnoreProperties(value = "topups", allowSetters = true)
-    private TopUp topUp;
-
-    @ManyToOne
-    @JsonIgnoreProperties(value = "refunds", allowSetters = true)
-    private Refund refund;
-
-    @ManyToOne
-    @JsonIgnoreProperties(value = "peertopeers", allowSetters = true)
-    private PeerToPeer peerToPeer;
+    @JsonIgnoreProperties(value = "wallets", allowSetters = true)
+    private Customer wallet;
 
     // jhipster-needle-entity-add-field - JHipster will add fields here
     public Long getId() {
@@ -196,68 +182,17 @@ public class Wallet implements Serializable {
         this.identification = identification;
     }
 
-    public Set<Customer> getWallets() {
-        return wallets;
+    public Customer getWallet() {
+        return wallet;
     }
 
-    public Wallet wallets(Set<Customer> customers) {
-        this.wallets = customers;
+    public Wallet wallet(Customer customer) {
+        this.wallet = customer;
         return this;
     }
 
-    public Wallet addWallet(Customer customer) {
-        this.wallets.add(customer);
-        customer.setWallet(this);
-        return this;
-    }
-
-    public Wallet removeWallet(Customer customer) {
-        this.wallets.remove(customer);
-        customer.setWallet(null);
-        return this;
-    }
-
-    public void setWallets(Set<Customer> customers) {
-        this.wallets = customers;
-    }
-
-    public TopUp getTopUp() {
-        return topUp;
-    }
-
-    public Wallet topUp(TopUp topUp) {
-        this.topUp = topUp;
-        return this;
-    }
-
-    public void setTopUp(TopUp topUp) {
-        this.topUp = topUp;
-    }
-
-    public Refund getRefund() {
-        return refund;
-    }
-
-    public Wallet refund(Refund refund) {
-        this.refund = refund;
-        return this;
-    }
-
-    public void setRefund(Refund refund) {
-        this.refund = refund;
-    }
-
-    public PeerToPeer getPeerToPeer() {
-        return peerToPeer;
-    }
-
-    public Wallet peerToPeer(PeerToPeer peerToPeer) {
-        this.peerToPeer = peerToPeer;
-        return this;
-    }
-
-    public void setPeerToPeer(PeerToPeer peerToPeer) {
-        this.peerToPeer = peerToPeer;
+    public void setWallet(Customer customer) {
+        this.wallet = customer;
     }
     // jhipster-needle-entity-add-getters-setters - JHipster will add getters and setters here
 

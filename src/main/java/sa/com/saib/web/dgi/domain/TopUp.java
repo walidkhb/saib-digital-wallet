@@ -1,5 +1,6 @@
 package sa.com.saib.web.dgi.domain;
 
+import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 import org.hibernate.annotations.Cache;
 import org.hibernate.annotations.CacheConcurrencyStrategy;
 
@@ -8,8 +9,6 @@ import javax.persistence.*;
 import org.springframework.data.elasticsearch.annotations.FieldType;
 import java.io.Serializable;
 import java.math.BigDecimal;
-import java.util.HashSet;
-import java.util.Set;
 
 /**
  * A TopUp.
@@ -54,9 +53,9 @@ public class TopUp implements Serializable {
     @Column(name = "payment_details")
     private String paymentDetails;
 
-    @OneToMany(mappedBy = "topUp")
-    @Cache(usage = CacheConcurrencyStrategy.READ_WRITE)
-    private Set<Wallet> topups = new HashSet<>();
+    @ManyToOne
+    @JsonIgnoreProperties(value = "topUps", allowSetters = true)
+    private Wallet topup;
 
     // jhipster-needle-entity-add-field - JHipster will add fields here
     public Long getId() {
@@ -184,29 +183,17 @@ public class TopUp implements Serializable {
         this.paymentDetails = paymentDetails;
     }
 
-    public Set<Wallet> getTopups() {
-        return topups;
+    public Wallet getTopup() {
+        return topup;
     }
 
-    public TopUp topups(Set<Wallet> wallets) {
-        this.topups = wallets;
+    public TopUp topup(Wallet wallet) {
+        this.topup = wallet;
         return this;
     }
 
-    public TopUp addTopup(Wallet wallet) {
-        this.topups.add(wallet);
-        wallet.setTopUp(this);
-        return this;
-    }
-
-    public TopUp removeTopup(Wallet wallet) {
-        this.topups.remove(wallet);
-        wallet.setTopUp(null);
-        return this;
-    }
-
-    public void setTopups(Set<Wallet> wallets) {
-        this.topups = wallets;
+    public void setTopup(Wallet wallet) {
+        this.topup = wallet;
     }
     // jhipster-needle-entity-add-getters-setters - JHipster will add getters and setters here
 

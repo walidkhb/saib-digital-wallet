@@ -1,6 +1,5 @@
 package sa.com.saib.web.dgi.domain;
 
-import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 import org.hibernate.annotations.Cache;
 import org.hibernate.annotations.CacheConcurrencyStrategy;
 
@@ -85,10 +84,6 @@ public class Customer implements Serializable {
 
     @Column(name = "profile_status")
     private String profileStatus;
-
-    @ManyToOne
-    @JsonIgnoreProperties(value = "wallets", allowSetters = true)
-    private Wallet wallet;
 
     // jhipster-needle-entity-add-field - JHipster will add fields here
     public Long getId() {
@@ -344,19 +339,6 @@ public class Customer implements Serializable {
 
     public void setProfileStatus(String profileStatus) {
         this.profileStatus = profileStatus;
-    }
-
-    public Wallet getWallet() {
-        return wallet;
-    }
-
-    public Customer wallet(Wallet wallet) {
-        this.wallet = wallet;
-        return this;
-    }
-
-    public void setWallet(Wallet wallet) {
-        this.wallet = wallet;
     }
     // jhipster-needle-entity-add-getters-setters - JHipster will add getters and setters here
 

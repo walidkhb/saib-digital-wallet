@@ -1,5 +1,6 @@
 package sa.com.saib.web.dgi.domain;
 
+import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 import org.hibernate.annotations.Cache;
 import org.hibernate.annotations.CacheConcurrencyStrategy;
 
@@ -37,8 +38,8 @@ public class KycPersonal implements Serializable {
     @Column(name = "pecondary_amount", precision = 21, scale = 2)
     private BigDecimal pecondaryAmount;
 
-    @OneToOne
-    @JoinColumn(unique = true)
+    @ManyToOne
+    @JsonIgnoreProperties(value = "kycPersonals", allowSetters = true)
     private Kyc kycPersonal;
 
     // jhipster-needle-entity-add-field - JHipster will add fields here

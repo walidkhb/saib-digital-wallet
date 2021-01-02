@@ -26,10 +26,7 @@
       "description": "Description",
       "schemeName": "Scheme Name",
       "identification": "Identification",
-      "wallet": "Wallet",
-      "topUp": "Top Up",
-      "refund": "Refund",
-      "peerToPeer": "Peer To Peer"
+      "wallet": "Wallet"
     }
   }
 }
