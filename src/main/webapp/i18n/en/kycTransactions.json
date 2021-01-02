@@ -1,0 +1,29 @@
+{
+  "saibDigitalWalletApp": {
+    "kycTransactions": {
+      "home": {
+        "title": "Kyc Transactions",
+        "createLabel": "Create a new Kyc Transactions",
+        "createOrEditLabel": "Create or edit a Kyc Transactions",
+        "search": "Search for Kyc Transactions",
+        "notFound": "No Kyc Transactions found"
+      },
+      "created": "A new Kyc Transactions is created with identifier {{ param }}",
+      "updated": "A Kyc Transactions is updated with identifier {{ param }}",
+      "deleted": "A Kyc Transactions is deleted with identifier {{ param }}",
+      "delete": {
+        "question": "Are you sure you want to delete Kyc Transactions {{ id }}?"
+      },
+      "detail": {
+        "title": "Kyc Transactions"
+      },
+      "creditCount": "Credit Count",
+      "creditAmount": "Credit Amount",
+      "debitCount": "Debit Count",
+      "debitAmount": "Debit Amount",
+      "remittanceCount": "Remittance Count",
+      "remittanceAmount": "Remittance Amount",
+      "kycTransactions": "Kyc Transactions"
+    }
+  }
+}

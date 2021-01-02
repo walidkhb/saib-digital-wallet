@@ -1,0 +1,50 @@
+{
+  "name": "KycTransactions",
+  "fields": [
+    {
+      "fieldName": "creditCount",
+      "fieldType": "Integer"
+    },
+    {
+      "fieldName": "creditAmount",
+      "fieldType": "BigDecimal"
+    },
+    {
+      "fieldName": "debitCount",
+      "fieldType": "Integer"
+    },
+    {
+      "fieldName": "debitAmount",
+      "fieldType": "BigDecimal"
+    },
+    {
+      "fieldName": "remittanceCount",
+      "fieldType": "Integer"
+    },
+    {
+      "fieldName": "remittanceAmount",
+      "fieldType": "BigDecimal"
+    }
+  ],
+  "relationships": [
+    {
+      "relationshipType": "one-to-one",
+      "otherEntityName": "kyc",
+      "otherEntityRelationshipName": "kycTransactions",
+      "relationshipName": "kycTransactions",
+      "otherEntityField": "id",
+      "ownerSide": true
+    }
+  ],
+  "changelogDate": "20210102082049",
+  "entityTableName": "kyc_transactions",
+  "dto": "no",
+  "pagination": "no",
+  "service": "no",
+  "jpaMetamodelFiltering": false,
+  "fluentMethods": true,
+  "readOnly": false,
+  "embedded": false,
+  "clientRootFolder": "",
+  "applications": "*"
+}

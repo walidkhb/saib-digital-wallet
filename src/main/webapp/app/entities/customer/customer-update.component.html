@@ -1,0 +1,164 @@
+<div class="row justify-content-center">
+    <div class="col-8">
+        <form name="editForm" role="form" novalidate (ngSubmit)="save()" [formGroup]="editForm">
+            <h2 id="jhi-customer-heading" jhiTranslate="saibDigitalWalletApp.customer.home.createOrEditLabel">Create or edit a Customer</h2>
+
+            <div>
+                <jhi-alert-error></jhi-alert-error>
+
+                <div class="form-group" [hidden]="!editForm.get('id')!.value">
+                    <label for="id" jhiTranslate="global.field.id">ID</label>
+                    <input type="text" class="form-control" id="id" name="id" formControlName="id" readonly />
+                </div>
+
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="saibDigitalWalletApp.customer.nationalIdentityNumber" for="field_nationalIdentityNumber">National Identity Number</label>
+                    <input type="text" class="form-control" name="nationalIdentityNumber" id="field_nationalIdentityNumber"
+                           formControlName="nationalIdentityNumber"/>
+                </div>
+
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="saibDigitalWalletApp.customer.idType" for="field_idType">Id Type</label>
+                    <input type="text" class="form-control" name="idType" id="field_idType"
+                           formControlName="idType"/>
+                </div>
+
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="saibDigitalWalletApp.customer.dateOfBirth" for="field_dateOfBirth">Date Of Birth</label>
+                    <div class="input-group">
+                        <input id="field_dateOfBirth" type="text" class="form-control" name="dateOfBirth" ngbDatepicker #dateOfBirthDp="ngbDatepicker" formControlName="dateOfBirth"/>
+                        <span class="input-group-append">
+                            <button type="button" class="btn btn-secondary" (click)="dateOfBirthDp.toggle()"><fa-icon icon="calendar-alt"></fa-icon></button>
+                        </span>
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="saibDigitalWalletApp.customer.mobilePhoneNumber" for="field_mobilePhoneNumber">Mobile Phone Number</label>
+                    <input type="text" class="form-control" name="mobilePhoneNumber" id="field_mobilePhoneNumber"
+                           formControlName="mobilePhoneNumber"/>
+                    <div *ngIf="editForm.get('mobilePhoneNumber')!.invalid && (editForm.get('mobilePhoneNumber')!.dirty || editForm.get('mobilePhoneNumber')!.touched)">
+                        <small class="form-text text-danger"
+                               *ngIf="editForm.get('mobilePhoneNumber')?.errors?.pattern" jhiTranslate="entity.validation.pattern" [translateValues]="{ pattern: 'Mobile Phone Number' }">
+                            This field should follow pattern for "Mobile Phone Number".
+                        </small>
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="saibDigitalWalletApp.customer.agentVerificationNumber" for="field_agentVerificationNumber">Agent Verification Number</label>
+                    <input type="text" class="form-control" name="agentVerificationNumber" id="field_agentVerificationNumber"
+                           formControlName="agentVerificationNumber"/>
+                </div>
+
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="saibDigitalWalletApp.customer.email" for="field_email">Email</label>
+                    <input type="text" class="form-control" name="email" id="field_email"
+                           formControlName="email"/>
+                    <div *ngIf="editForm.get('email')!.invalid && (editForm.get('email')!.dirty || editForm.get('email')!.touched)">
+                        <small class="form-text text-danger"
+                               *ngIf="editForm.get('email')?.errors?.pattern" jhiTranslate="entity.validation.pattern" [translateValues]="{ pattern: 'Email' }">
+                            This field should follow pattern for "Email".
+                        </small>
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="saibDigitalWalletApp.customer.language" for="field_language">Language</label>
+                    <input type="text" class="form-control" name="language" id="field_language"
+                           formControlName="language"/>
+                </div>
+
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="saibDigitalWalletApp.customer.name" for="field_name">Name</label>
+                    <input type="text" class="form-control" name="name" id="field_name"
+                           formControlName="name"/>
+                </div>
+
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="saibDigitalWalletApp.customer.customerNumber" for="field_customerNumber">Customer Number</label>
+                    <input type="text" class="form-control" name="customerNumber" id="field_customerNumber"
+                           formControlName="customerNumber"/>
+                </div>
+
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="saibDigitalWalletApp.customer.firstNameArabic" for="field_firstNameArabic">First Name Arabic</label>
+                    <input type="text" class="form-control" name="firstNameArabic" id="field_firstNameArabic"
+                           formControlName="firstNameArabic"/>
+                </div>
+
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="saibDigitalWalletApp.customer.fatherNameArabic" for="field_fatherNameArabic">Father Name Arabic</label>
+                    <input type="text" class="form-control" name="fatherNameArabic" id="field_fatherNameArabic"
+                           formControlName="fatherNameArabic"/>
+                </div>
+
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="saibDigitalWalletApp.customer.grandFatherNameArabic" for="field_grandFatherNameArabic">Grand Father Name Arabic</label>
+                    <input type="text" class="form-control" name="grandFatherNameArabic" id="field_grandFatherNameArabic"
+                           formControlName="grandFatherNameArabic"/>
+                </div>
+
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="saibDigitalWalletApp.customer.grandFatherNameEnglish" for="field_grandFatherNameEnglish">Grand Father Name English</label>
+                    <input type="text" class="form-control" name="grandFatherNameEnglish" id="field_grandFatherNameEnglish"
+                           formControlName="grandFatherNameEnglish"/>
+                </div>
+
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="saibDigitalWalletApp.customer.placeOfBirth" for="field_placeOfBirth">Place Of Birth</label>
+                    <input type="text" class="form-control" name="placeOfBirth" id="field_placeOfBirth"
+                           formControlName="placeOfBirth"/>
+                </div>
+
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="saibDigitalWalletApp.customer.idIssueDate" for="field_idIssueDate">Id Issue Date</label>
+                    <input type="text" class="form-control" name="idIssueDate" id="field_idIssueDate"
+                           formControlName="idIssueDate"/>
+                </div>
+
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="saibDigitalWalletApp.customer.idExpiryDate" for="field_idExpiryDate">Id Expiry Date</label>
+                    <input type="text" class="form-control" name="idExpiryDate" id="field_idExpiryDate"
+                           formControlName="idExpiryDate"/>
+                </div>
+
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="saibDigitalWalletApp.customer.maritalStatus" for="field_maritalStatus">Marital Status</label>
+                    <input type="text" class="form-control" name="maritalStatus" id="field_maritalStatus"
+                           formControlName="maritalStatus"/>
+                </div>
+
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="saibDigitalWalletApp.customer.customerId" for="field_customerId">Customer Id</label>
+                    <input type="text" class="form-control" name="customerId" id="field_customerId"
+                           formControlName="customerId"/>
+                </div>
+
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="saibDigitalWalletApp.customer.profileStatus" for="field_profileStatus">Profile Status</label>
+                    <input type="text" class="form-control" name="profileStatus" id="field_profileStatus"
+                           formControlName="profileStatus"/>
+                </div>
+
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="saibDigitalWalletApp.customer.wallet" for="field_wallet">Wallet</label>
+                    <select class="form-control" id="field_wallet" name="wallet" formControlName="wallet">
+                        <option [ngValue]="null"></option>
+                        <option [ngValue]="walletOption.id === editForm.get('wallet')!.value?.id ? editForm.get('wallet')!.value : walletOption" *ngFor="let walletOption of wallets; trackBy: trackById">{{ walletOption.id }}</option>
+                    </select>
+                </div>
+            </div>
+
+            <div>
+                <button type="button" id="cancel-save" class="btn btn-secondary" (click)="previousState()">
+                    <fa-icon icon="ban"></fa-icon>&nbsp;<span jhiTranslate="entity.action.cancel">Cancel</span>
+                </button>
+
+                <button type="submit" id="save-entity" [disabled]="editForm.invalid || isSaving" class="btn btn-primary">
+                    <fa-icon icon="save"></fa-icon>&nbsp;<span jhiTranslate="entity.action.save">Save</span>
+                </button>
+            </div>
+        </form>
+    </div>
+</div>

@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="utf-8"?>
+<databaseChangeLog
+    xmlns="http://www.liquibase.org/xml/ns/dbchangelog"
+    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xsi:schemaLocation="http://www.liquibase.org/xml/ns/dbchangelog http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-3.9.xsd">
+    <!--
+        Added the constraints for entity Wallet.
+    -->
+    <changeSet id="20210102082549-2" author="jhipster">
+        
+        <addForeignKeyConstraint baseColumnNames="top_up_id"
+                                 baseTableName="wallet"
+                                 constraintName="fk_wallet_top_up_id"
+                                 referencedColumnNames="id"
+                                 referencedTableName="top_up"/>
+
+        <addForeignKeyConstraint baseColumnNames="refund_id"
+                                 baseTableName="wallet"
+                                 constraintName="fk_wallet_refund_id"
+                                 referencedColumnNames="id"
+                                 referencedTableName="refund"/>
+
+        <addForeignKeyConstraint baseColumnNames="peer_to_peer_id"
+                                 baseTableName="wallet"
+                                 constraintName="fk_wallet_peer_to_peer_id"
+                                 referencedColumnNames="id"
+                                 referencedTableName="peer_to_peer"/>
+
+    </changeSet>
+</databaseChangeLog>

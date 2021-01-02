@@ -1,0 +1,27 @@
+{
+  "saibDigitalWalletApp": {
+    "kycIncome": {
+      "home": {
+        "title": "Kyc Incomes",
+        "createLabel": "Create a new Kyc Income",
+        "createOrEditLabel": "Create or edit a Kyc Income",
+        "search": "Search for Kyc Income",
+        "notFound": "No Kyc Incomes found"
+      },
+      "created": "A new Kyc Income is created with identifier {{ param }}",
+      "updated": "A Kyc Income is updated with identifier {{ param }}",
+      "deleted": "A Kyc Income is deleted with identifier {{ param }}",
+      "delete": {
+        "question": "Are you sure you want to delete Kyc Income {{ id }}?"
+      },
+      "detail": {
+        "title": "Kyc Income"
+      },
+      "primarySource": "Primary Source",
+      "primaryAmount": "Primary Amount",
+      "pecondarySource": "Pecondary Source",
+      "pecondaryAmount": "Pecondary Amount",
+      "kycIncome": "Kyc Income"
+    }
+  }
+}

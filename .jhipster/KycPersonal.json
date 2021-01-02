@@ -1,0 +1,42 @@
+{
+  "name": "KycPersonal",
+  "fields": [
+    {
+      "fieldName": "primarySource",
+      "fieldType": "String"
+    },
+    {
+      "fieldName": "primaryAmount",
+      "fieldType": "BigDecimal"
+    },
+    {
+      "fieldName": "pecondarySource",
+      "fieldType": "String"
+    },
+    {
+      "fieldName": "pecondaryAmount",
+      "fieldType": "BigDecimal"
+    }
+  ],
+  "relationships": [
+    {
+      "relationshipType": "one-to-one",
+      "otherEntityName": "kyc",
+      "otherEntityRelationshipName": "kycPersonal",
+      "relationshipName": "kycPersonal",
+      "otherEntityField": "id",
+      "ownerSide": true
+    }
+  ],
+  "changelogDate": "20210102082149",
+  "entityTableName": "kyc_personal",
+  "dto": "no",
+  "pagination": "no",
+  "service": "no",
+  "jpaMetamodelFiltering": false,
+  "fluentMethods": true,
+  "readOnly": false,
+  "embedded": false,
+  "clientRootFolder": "",
+  "applications": "*"
+}

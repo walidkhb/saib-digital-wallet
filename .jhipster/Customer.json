@@ -1,0 +1,109 @@
+{
+  "name": "Customer",
+  "fields": [
+    {
+      "fieldName": "nationalIdentityNumber",
+      "fieldType": "String"
+    },
+    {
+      "fieldName": "idType",
+      "fieldType": "String"
+    },
+    {
+      "fieldName": "dateOfBirth",
+      "fieldType": "LocalDate"
+    },
+    {
+      "fieldName": "mobilePhoneNumber",
+      "fieldType": "String",
+      "fieldValidateRules": [
+        "pattern"
+      ],
+      "fieldValidateRulesPattern": "[+]\\d+-\\d+"
+    },
+    {
+      "fieldName": "agentVerificationNumber",
+      "fieldType": "String"
+    },
+    {
+      "fieldName": "email",
+      "fieldType": "String",
+      "fieldValidateRules": [
+        "pattern"
+      ],
+      "fieldValidateRulesPattern": "[^@]+@[^\\.]+\\..+$"
+    },
+    {
+      "fieldName": "language",
+      "fieldType": "String"
+    },
+    {
+      "fieldName": "name",
+      "fieldType": "String"
+    },
+    {
+      "fieldName": "customerNumber",
+      "fieldType": "String"
+    },
+    {
+      "fieldName": "firstNameArabic",
+      "fieldType": "String"
+    },
+    {
+      "fieldName": "fatherNameArabic",
+      "fieldType": "String"
+    },
+    {
+      "fieldName": "grandFatherNameArabic",
+      "fieldType": "String"
+    },
+    {
+      "fieldName": "grandFatherNameEnglish",
+      "fieldType": "String"
+    },
+    {
+      "fieldName": "placeOfBirth",
+      "fieldType": "String"
+    },
+    {
+      "fieldName": "idIssueDate",
+      "fieldType": "String"
+    },
+    {
+      "fieldName": "idExpiryDate",
+      "fieldType": "String"
+    },
+    {
+      "fieldName": "maritalStatus",
+      "fieldType": "String"
+    },
+    {
+      "fieldName": "customerId",
+      "fieldType": "String"
+    },
+    {
+      "fieldName": "profileStatus",
+      "fieldType": "String"
+    }
+  ],
+  "relationships": [
+    {
+      "relationshipType": "many-to-one",
+      "otherEntityName": "wallet",
+      "otherEntityRelationshipName": "wallet",
+      "relationshipName": "wallet",
+      "otherEntityField": "id"
+    }
+  ],
+  "changelogDate": "20210102081649",
+  "entityTableName": "customer",
+  "dto": "no",
+  "pagination": "no",
+  "service": "no",
+  "jpaMetamodelFiltering": false,
+  "fluentMethods": true,
+  "readOnly": false,
+  "embedded": false,
+  "clientRootFolder": "",
+  "applications": "*"
+}
