@@ -1,0 +1,48 @@
+{
+  "name": "PeerToPeer",
+  "fields": [
+    {
+      "fieldName": "amount",
+      "fieldType": "BigDecimal"
+    },
+    {
+      "fieldName": "currency",
+      "fieldType": "String"
+    },
+    {
+      "fieldName": "beneficiaryRelationship",
+      "fieldType": "String"
+    },
+    {
+      "fieldName": "purposeOfTransfer",
+      "fieldType": "String"
+    },
+    {
+      "fieldName": "transactionType",
+      "fieldType": "String"
+    },
+    {
+      "fieldName": "paymentDetails",
+      "fieldType": "String"
+    }
+  ],
+  "relationships": [
+    {
+      "relationshipType": "one-to-many",
+      "otherEntityName": "wallet",
+      "otherEntityRelationshipName": "peerToPeer",
+      "relationshipName": "peertopeer"
+    }
+  ],
+  "changelogDate": "20210102082236",
+  "entityTableName": "peer_to_peer",
+  "dto": "no",
+  "pagination": "no",
+  "service": "no",
+  "jpaMetamodelFiltering": false,
+  "fluentMethods": true,
+  "readOnly": false,
+  "embedded": false,
+  "clientRootFolder": "",
+  "applications": "*"
+}

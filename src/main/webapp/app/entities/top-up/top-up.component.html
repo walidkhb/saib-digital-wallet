@@ -1,0 +1,95 @@
+<div>
+    <h2 id="page-heading">
+        <span jhiTranslate="saibDigitalWalletApp.topUp.home.title">Top Ups</span>
+
+        <button id="jh-create-entity" class="btn btn-primary float-right jh-create-entity create-top-up" [routerLink]="['/top-up/new']">
+            <fa-icon icon="plus"></fa-icon>
+            <span class="hidden-sm-down"  jhiTranslate="saibDigitalWalletApp.topUp.home.createLabel">
+            Create a new Top Up
+            </span>
+        </button>
+    </h2>
+
+    <jhi-alert-error></jhi-alert-error>
+
+    <jhi-alert></jhi-alert>
+
+    <div class="row">
+        <div class="col-sm-12">
+            <form name="searchForm" class="form-inline">
+                <div class="input-group w-100 mt-3">
+                    <input type="text" class="form-control" [(ngModel)]="currentSearch" id="currentSearch" name="currentSearch" placeholder="{{ 'saibDigitalWalletApp.topUp.home.search' | translate }}">
+
+                    <button class="input-group-append btn btn-info" (click)="search(currentSearch)">
+                        <fa-icon icon="search"></fa-icon>
+                    </button>
+
+                    <button class="input-group-append btn btn-danger" (click)="search('')" *ngIf="currentSearch">
+                        <fa-icon icon="trash-alt"></fa-icon>
+                    </button>
+                </div>
+            </form>
+        </div>
+    </div>
+
+    <div class="alert alert-warning" id="no-result" *ngIf="topUps?.length === 0">
+        <span jhiTranslate="saibDigitalWalletApp.topUp.home.notFound">No topUps found</span>
+    </div>
+
+    <div class="table-responsive" id="entities" *ngIf="topUps && topUps.length > 0">
+        <table class="table table-striped" aria-describedby="page-heading">
+            <thead>
+                <tr>
+                    <th scope="col" ><span jhiTranslate="global.field.id">ID</span></th>
+                    <th scope="col" ><span jhiTranslate="saibDigitalWalletApp.topUp.amount">Amount</span></th>
+                    <th scope="col" ><span jhiTranslate="saibDigitalWalletApp.topUp.currency">Currency</span></th>
+                    <th scope="col" ><span jhiTranslate="saibDigitalWalletApp.topUp.transactionType">Transaction Type</span></th>
+                    <th scope="col" ><span jhiTranslate="saibDigitalWalletApp.topUp.narativeLine1">Narative Line 1</span></th>
+                    <th scope="col" ><span jhiTranslate="saibDigitalWalletApp.topUp.narativeLine2">Narative Line 2</span></th>
+                    <th scope="col" ><span jhiTranslate="saibDigitalWalletApp.topUp.narativeLine3">Narative Line 3</span></th>
+                    <th scope="col" ><span jhiTranslate="saibDigitalWalletApp.topUp.narativeLine4">Narative Line 4</span></th>
+                    <th scope="col" ><span jhiTranslate="saibDigitalWalletApp.topUp.clientRefNumber">Client Ref Number</span></th>
+                    <th scope="col" ><span jhiTranslate="saibDigitalWalletApp.topUp.paymentDetails">Payment Details</span></th>
+                    <th scope="col"></th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr *ngFor="let topUp of topUps ;trackBy: trackId">
+                    <td><a [routerLink]="['/top-up', topUp.id, 'view']">{{ topUp.id }}</a></td>
+                    <td>{{ topUp.amount }}</td>
+                    <td>{{ topUp.currency }}</td>
+                    <td>{{ topUp.transactionType }}</td>
+                    <td>{{ topUp.narativeLine1 }}</td>
+                    <td>{{ topUp.narativeLine2 }}</td>
+                    <td>{{ topUp.narativeLine3 }}</td>
+                    <td>{{ topUp.narativeLine4 }}</td>
+                    <td>{{ topUp.clientRefNumber }}</td>
+                    <td>{{ topUp.paymentDetails }}</td>
+                    <td class="text-right">
+                        <div class="btn-group">
+                            <button type="submit"
+                                    [routerLink]="['/top-up', topUp.id, 'view']"
+                                    class="btn btn-info btn-sm">
+                                <fa-icon icon="eye"></fa-icon>
+                                <span class="d-none d-md-inline" jhiTranslate="entity.action.view">View</span>
+                            </button>
+
+                            <button type="submit"
+                                    [routerLink]="['/top-up', topUp.id, 'edit']"
+                                    class="btn btn-primary btn-sm">
+                                <fa-icon icon="pencil-alt"></fa-icon>
+                                <span class="d-none d-md-inline" jhiTranslate="entity.action.edit">Edit</span>
+                            </button>
+
+                            <button type="submit" (click)="delete(topUp)"
+                                    class="btn btn-danger btn-sm">
+                                <fa-icon icon="times"></fa-icon>
+                                <span class="d-none d-md-inline" jhiTranslate="entity.action.delete">Delete</span>
+                            </button>
+                        </div>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+</div>

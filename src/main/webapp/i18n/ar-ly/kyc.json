@@ -1,0 +1,23 @@
+{
+  "saibDigitalWalletApp": {
+    "kyc": {
+      "home": {
+        "title": "Kycs",
+        "createLabel": "Create a new Kyc",
+        "createOrEditLabel": "Create or edit a Kyc",
+        "search": "Search for Kyc",
+        "notFound": "No Kycs found"
+      },
+      "created": "A new Kyc is created with identifier {{ param }}",
+      "updated": "A Kyc is updated with identifier {{ param }}",
+      "deleted": "A Kyc is deleted with identifier {{ param }}",
+      "delete": {
+        "question": "Are you sure you want to delete Kyc {{ id }}?"
+      },
+      "detail": {
+        "title": "Kyc"
+      },
+      "kycInfo": "Kyc Info"
+    }
+  }
+}

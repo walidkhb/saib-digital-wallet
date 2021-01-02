@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="utf-8"?>
+<databaseChangeLog
+    xmlns="http://www.liquibase.org/xml/ns/dbchangelog"
+    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xsi:schemaLocation="http://www.liquibase.org/xml/ns/dbchangelog http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-3.9.xsd">
+    <!--
+        Added the constraints for entity KycPersonal.
+    -->
+    <changeSet id="20210102082136-2" author="jhipster">
+        
+        <addForeignKeyConstraint baseColumnNames="kyc_personal_id"
+                                 baseTableName="kyc_personal"
+                                 constraintName="fk_kyc_personal_kyc_personal_id"
+                                 referencedColumnNames="id"
+                                 referencedTableName="kyc"/>
+
+    </changeSet>
+</databaseChangeLog>

@@ -1,0 +1,62 @@
+<div class="row justify-content-center">
+    <div class="col-8">
+        <div *ngIf="topUp">
+            <h2><span jhiTranslate="saibDigitalWalletApp.topUp.detail.title">Top Up</span> {{ topUp.id }}</h2>
+
+            <hr>
+
+            <jhi-alert-error></jhi-alert-error>
+
+            <dl class="row-md jh-entity-details">
+                <dt><span jhiTranslate="saibDigitalWalletApp.topUp.amount">Amount</span></dt>
+                <dd>
+                    <span>{{ topUp.amount }}</span>
+                </dd>
+                <dt><span jhiTranslate="saibDigitalWalletApp.topUp.currency">Currency</span></dt>
+                <dd>
+                    <span>{{ topUp.currency }}</span>
+                </dd>
+                <dt><span jhiTranslate="saibDigitalWalletApp.topUp.transactionType">Transaction Type</span></dt>
+                <dd>
+                    <span>{{ topUp.transactionType }}</span>
+                </dd>
+                <dt><span jhiTranslate="saibDigitalWalletApp.topUp.narativeLine1">Narative Line 1</span></dt>
+                <dd>
+                    <span>{{ topUp.narativeLine1 }}</span>
+                </dd>
+                <dt><span jhiTranslate="saibDigitalWalletApp.topUp.narativeLine2">Narative Line 2</span></dt>
+                <dd>
+                    <span>{{ topUp.narativeLine2 }}</span>
+                </dd>
+                <dt><span jhiTranslate="saibDigitalWalletApp.topUp.narativeLine3">Narative Line 3</span></dt>
+                <dd>
+                    <span>{{ topUp.narativeLine3 }}</span>
+                </dd>
+                <dt><span jhiTranslate="saibDigitalWalletApp.topUp.narativeLine4">Narative Line 4</span></dt>
+                <dd>
+                    <span>{{ topUp.narativeLine4 }}</span>
+                </dd>
+                <dt><span jhiTranslate="saibDigitalWalletApp.topUp.clientRefNumber">Client Ref Number</span></dt>
+                <dd>
+                    <span>{{ topUp.clientRefNumber }}</span>
+                </dd>
+                <dt><span jhiTranslate="saibDigitalWalletApp.topUp.paymentDetails">Payment Details</span></dt>
+                <dd>
+                    <span>{{ topUp.paymentDetails }}</span>
+                </dd>
+            </dl>
+
+            <button type="submit"
+                    (click)="previousState()"
+                    class="btn btn-info">
+                <fa-icon icon="arrow-left"></fa-icon>&nbsp;<span jhiTranslate="entity.action.back">Back</span>
+            </button>
+
+            <button type="button"
+                    [routerLink]="['/top-up', topUp.id, 'edit']"
+                    class="btn btn-primary">
+                <fa-icon icon="pencil-alt"></fa-icon>&nbsp;<span jhiTranslate="entity.action.edit">Edit</span>
+            </button>
+        </div>
+    </div>
+</div>

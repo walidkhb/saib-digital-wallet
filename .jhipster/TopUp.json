@@ -1,0 +1,60 @@
+{
+  "name": "TopUp",
+  "fields": [
+    {
+      "fieldName": "amount",
+      "fieldType": "BigDecimal"
+    },
+    {
+      "fieldName": "currency",
+      "fieldType": "String"
+    },
+    {
+      "fieldName": "transactionType",
+      "fieldType": "String"
+    },
+    {
+      "fieldName": "narativeLine1",
+      "fieldType": "String"
+    },
+    {
+      "fieldName": "narativeLine2",
+      "fieldType": "String"
+    },
+    {
+      "fieldName": "narativeLine3",
+      "fieldType": "String"
+    },
+    {
+      "fieldName": "narativeLine4",
+      "fieldType": "String"
+    },
+    {
+      "fieldName": "clientRefNumber",
+      "fieldType": "String"
+    },
+    {
+      "fieldName": "paymentDetails",
+      "fieldType": "String"
+    }
+  ],
+  "relationships": [
+    {
+      "relationshipType": "one-to-many",
+      "otherEntityName": "wallet",
+      "otherEntityRelationshipName": "topUp",
+      "relationshipName": "topup"
+    }
+  ],
+  "changelogDate": "20210102082336",
+  "entityTableName": "top_up",
+  "dto": "no",
+  "pagination": "no",
+  "service": "no",
+  "jpaMetamodelFiltering": false,
+  "fluentMethods": true,
+  "readOnly": false,
+  "embedded": false,
+  "clientRootFolder": "",
+  "applications": "*"
+}

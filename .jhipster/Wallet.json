@@ -1,0 +1,81 @@
+{
+  "name": "Wallet",
+  "fields": [
+    {
+      "fieldName": "walletId",
+      "fieldType": "String"
+    },
+    {
+      "fieldName": "status",
+      "fieldType": "String"
+    },
+    {
+      "fieldName": "statusUpdateDateTime",
+      "fieldType": "String"
+    },
+    {
+      "fieldName": "currency",
+      "fieldType": "String"
+    },
+    {
+      "fieldName": "accountType",
+      "fieldType": "String"
+    },
+    {
+      "fieldName": "accountSubType",
+      "fieldType": "String"
+    },
+    {
+      "fieldName": "description",
+      "fieldType": "String"
+    },
+    {
+      "fieldName": "schemeName",
+      "fieldType": "String"
+    },
+    {
+      "fieldName": "identification",
+      "fieldType": "String"
+    }
+  ],
+  "relationships": [
+    {
+      "relationshipType": "one-to-many",
+      "otherEntityName": "customer",
+      "otherEntityRelationshipName": "wallet",
+      "relationshipName": "wallet"
+    },
+    {
+      "relationshipType": "many-to-one",
+      "otherEntityName": "topUp",
+      "otherEntityRelationshipName": "topup",
+      "relationshipName": "topUp",
+      "otherEntityField": "id"
+    },
+    {
+      "relationshipType": "many-to-one",
+      "otherEntityName": "refund",
+      "otherEntityRelationshipName": "refund",
+      "relationshipName": "refund",
+      "otherEntityField": "id"
+    },
+    {
+      "relationshipType": "many-to-one",
+      "otherEntityName": "peerToPeer",
+      "otherEntityRelationshipName": "peertopeer",
+      "relationshipName": "peerToPeer",
+      "otherEntityField": "id"
+    }
+  ],
+  "changelogDate": "20210102082536",
+  "entityTableName": "wallet",
+  "dto": "no",
+  "pagination": "no",
+  "service": "no",
+  "jpaMetamodelFiltering": false,
+  "fluentMethods": true,
+  "readOnly": false,
+  "embedded": false,
+  "clientRootFolder": "",
+  "applications": "*"
+}

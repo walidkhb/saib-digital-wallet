@@ -1,0 +1,42 @@
+{
+  "name": "KycIncome",
+  "fields": [
+    {
+      "fieldName": "primarySource",
+      "fieldType": "String"
+    },
+    {
+      "fieldName": "primaryAmount",
+      "fieldType": "BigDecimal"
+    },
+    {
+      "fieldName": "pecondarySource",
+      "fieldType": "String"
+    },
+    {
+      "fieldName": "pecondaryAmount",
+      "fieldType": "BigDecimal"
+    }
+  ],
+  "relationships": [
+    {
+      "relationshipType": "one-to-one",
+      "otherEntityName": "kyc",
+      "otherEntityRelationshipName": "kycIncome",
+      "relationshipName": "kycIncome",
+      "otherEntityField": "id",
+      "ownerSide": true
+    }
+  ],
+  "changelogDate": "20210102081936",
+  "entityTableName": "kyc_income",
+  "dto": "no",
+  "pagination": "no",
+  "service": "no",
+  "jpaMetamodelFiltering": false,
+  "fluentMethods": true,
+  "readOnly": false,
+  "embedded": false,
+  "clientRootFolder": "",
+  "applications": "*"
+}

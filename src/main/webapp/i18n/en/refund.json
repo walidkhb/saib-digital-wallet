@@ -1,0 +1,27 @@
+{
+  "saibDigitalWalletApp": {
+    "refund": {
+      "home": {
+        "title": "Refunds",
+        "createLabel": "Create a new Refund",
+        "createOrEditLabel": "Create or edit a Refund",
+        "search": "Search for Refund",
+        "notFound": "No Refunds found"
+      },
+      "created": "A new Refund is created with identifier {{ param }}",
+      "updated": "A Refund is updated with identifier {{ param }}",
+      "deleted": "A Refund is deleted with identifier {{ param }}",
+      "delete": {
+        "question": "Are you sure you want to delete Refund {{ id }}?"
+      },
+      "detail": {
+        "title": "Refund"
+      },
+      "amount": "Amount",
+      "currency": "Currency",
+      "narativeLine1": "Narative Line 1",
+      "narativeLine2": "Narative Line 2",
+      "refund": "Refund"
+    }
+  }
+}

@@ -1,0 +1,56 @@
+<div class="row justify-content-center">
+    <div class="col-8">
+        <div *ngIf="kycTransactions">
+            <h2><span jhiTranslate="saibDigitalWalletApp.kycTransactions.detail.title">Kyc Transactions</span> {{ kycTransactions.id }}</h2>
+
+            <hr>
+
+            <jhi-alert-error></jhi-alert-error>
+
+            <dl class="row-md jh-entity-details">
+                <dt><span jhiTranslate="saibDigitalWalletApp.kycTransactions.creditCount">Credit Count</span></dt>
+                <dd>
+                    <span>{{ kycTransactions.creditCount }}</span>
+                </dd>
+                <dt><span jhiTranslate="saibDigitalWalletApp.kycTransactions.creditAmount">Credit Amount</span></dt>
+                <dd>
+                    <span>{{ kycTransactions.creditAmount }}</span>
+                </dd>
+                <dt><span jhiTranslate="saibDigitalWalletApp.kycTransactions.debitCount">Debit Count</span></dt>
+                <dd>
+                    <span>{{ kycTransactions.debitCount }}</span>
+                </dd>
+                <dt><span jhiTranslate="saibDigitalWalletApp.kycTransactions.debitAmount">Debit Amount</span></dt>
+                <dd>
+                    <span>{{ kycTransactions.debitAmount }}</span>
+                </dd>
+                <dt><span jhiTranslate="saibDigitalWalletApp.kycTransactions.remittanceCount">Remittance Count</span></dt>
+                <dd>
+                    <span>{{ kycTransactions.remittanceCount }}</span>
+                </dd>
+                <dt><span jhiTranslate="saibDigitalWalletApp.kycTransactions.remittanceAmount">Remittance Amount</span></dt>
+                <dd>
+                    <span>{{ kycTransactions.remittanceAmount }}</span>
+                </dd>
+                <dt><span jhiTranslate="saibDigitalWalletApp.kycTransactions.kycTransactions">Kyc Transactions</span></dt>
+                <dd>
+                    <div *ngIf="kycTransactions.kycTransactions">
+                        <a [routerLink]="['/kyc', kycTransactions.kycTransactions?.id, 'view']">{{ kycTransactions.kycTransactions?.id }}</a>
+                    </div>
+                </dd>
+            </dl>
+
+            <button type="submit"
+                    (click)="previousState()"
+                    class="btn btn-info">
+                <fa-icon icon="arrow-left"></fa-icon>&nbsp;<span jhiTranslate="entity.action.back">Back</span>
+            </button>
+
+            <button type="button"
+                    [routerLink]="['/kyc-transactions', kycTransactions.id, 'edit']"
+                    class="btn btn-primary">
+                <fa-icon icon="pencil-alt"></fa-icon>&nbsp;<span jhiTranslate="entity.action.edit">Edit</span>
+            </button>
+        </div>
+    </div>
+</div>

@@ -14,7 +14,24 @@
     <property name="uuidType" value="uuid" dbms="h2, mssql"/>
 
     <include file="config/liquibase/changelog/00000000000000_initial_schema.xml" relativeToChangelogFile="false"/>
+    <include file="config/liquibase/changelog/20210102081636_added_entity_Customer.xml" relativeToChangelogFile="false"/>
+    <include file="config/liquibase/changelog/20210102081736_added_entity_Address.xml" relativeToChangelogFile="false"/>
+    <include file="config/liquibase/changelog/20210102081836_added_entity_Kyc.xml" relativeToChangelogFile="false"/>
+    <include file="config/liquibase/changelog/20210102081936_added_entity_KycIncome.xml" relativeToChangelogFile="false"/>
+    <include file="config/liquibase/changelog/20210102082036_added_entity_KycTransactions.xml" relativeToChangelogFile="false"/>
+    <include file="config/liquibase/changelog/20210102082136_added_entity_KycPersonal.xml" relativeToChangelogFile="false"/>
+    <include file="config/liquibase/changelog/20210102082236_added_entity_PeerToPeer.xml" relativeToChangelogFile="false"/>
+    <include file="config/liquibase/changelog/20210102082336_added_entity_TopUp.xml" relativeToChangelogFile="false"/>
+    <include file="config/liquibase/changelog/20210102082436_added_entity_Refund.xml" relativeToChangelogFile="false"/>
+    <include file="config/liquibase/changelog/20210102082536_added_entity_Wallet.xml" relativeToChangelogFile="false"/>
     <!-- jhipster-needle-liquibase-add-changelog - JHipster will add liquibase changelogs here -->
+    <include file="config/liquibase/changelog/20210102081636_added_entity_constraints_Customer.xml" relativeToChangelogFile="false"/>
+    <include file="config/liquibase/changelog/20210102081736_added_entity_constraints_Address.xml" relativeToChangelogFile="false"/>
+    <include file="config/liquibase/changelog/20210102081836_added_entity_constraints_Kyc.xml" relativeToChangelogFile="false"/>
+    <include file="config/liquibase/changelog/20210102081936_added_entity_constraints_KycIncome.xml" relativeToChangelogFile="false"/>
+    <include file="config/liquibase/changelog/20210102082036_added_entity_constraints_KycTransactions.xml" relativeToChangelogFile="false"/>
+    <include file="config/liquibase/changelog/20210102082136_added_entity_constraints_KycPersonal.xml" relativeToChangelogFile="false"/>
+    <include file="config/liquibase/changelog/20210102082536_added_entity_constraints_Wallet.xml" relativeToChangelogFile="false"/>
     <!-- jhipster-needle-liquibase-add-constraints-changelog - JHipster will add liquibase constraints changelogs here -->
     <!-- jhipster-needle-liquibase-add-incremental-changelog - JHipster will add incremental liquibase changelogs here -->
 </databaseChangeLog>

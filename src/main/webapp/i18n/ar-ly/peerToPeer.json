@@ -1,0 +1,29 @@
+{
+  "saibDigitalWalletApp": {
+    "peerToPeer": {
+      "home": {
+        "title": "Peer To Peers",
+        "createLabel": "Create a new Peer To Peer",
+        "createOrEditLabel": "Create or edit a Peer To Peer",
+        "search": "Search for Peer To Peer",
+        "notFound": "No Peer To Peers found"
+      },
+      "created": "A new Peer To Peer is created with identifier {{ param }}",
+      "updated": "A Peer To Peer is updated with identifier {{ param }}",
+      "deleted": "A Peer To Peer is deleted with identifier {{ param }}",
+      "delete": {
+        "question": "Are you sure you want to delete Peer To Peer {{ id }}?"
+      },
+      "detail": {
+        "title": "Peer To Peer"
+      },
+      "amount": "Amount",
+      "currency": "Currency",
+      "beneficiaryRelationship": "Beneficiary Relationship",
+      "purposeOfTransfer": "Purpose Of Transfer",
+      "transactionType": "Transaction Type",
+      "paymentDetails": "Payment Details",
+      "peertopeer": "Peertopeer"
+    }
+  }
+}
