@@ -1,0 +1,128 @@
+entity Customer {
+	nationalIdentityNumber String,
+    idType String,
+    dateOfBirth LocalDate,
+    mobilePhoneNumber String pattern(/[+]\d+-\d+/),
+    agentVerificationNumber String,
+    email String pattern(/[^@]+@[^\.]+\..+$/),
+    language String,
+    name String,
+    customerNumber String,
+    firstNameArabic String,
+    fatherNameArabic String,
+    grandFatherNameArabic String,
+    grandFatherNameEnglish String,
+    placeOfBirth String,
+    idIssueDate String,
+    idExpiryDate String,
+    maritalStatus String,
+    customerId String,
+    profileStatus String
+}
+
+
+
+entity Address {
+	buildingNumber String,
+    streetName String,
+    neighborhood String,
+    cityName String,
+    zipCode String,
+    additionalNumber String,
+    regionDescription String,
+    unitNumber String
+    
+}
+
+// an ignored comment
+/** not an ignored comment */
+entity Kyc{
+
+}
+entity KycIncome {
+	primarySource String,
+	primaryAmount BigDecimal,
+    pecondarySource String,
+    pecondaryAmount BigDecimal
+}
+entity KycTransactions {
+	creditCount Integer,
+	creditAmount BigDecimal,
+    debitCount Integer,
+    debitAmount BigDecimal,
+    remittanceCount Integer,
+    remittanceAmount BigDecimal
+}
+entity KycPersonal {
+	primarySource String,
+	primaryAmount BigDecimal
+    pecondarySource String
+    pecondaryAmount BigDecimal
+}
+
+entity PeerToPeer {
+	amount BigDecimal,
+    currency String ,
+    beneficiaryRelationship String,
+    purposeOfTransfer String,
+    transactionType String,
+    paymentDetails String
+}
+entity TopUp {
+	amount BigDecimal,
+    currency String ,
+    transactionType String,
+    narativeLine1 String,
+    narativeLine2 String,
+    narativeLine3 String,
+    narativeLine4 String,
+    clientRefNumber String,
+    paymentDetails String
+}
+entity Refund {
+	amount BigDecimal,
+    currency String ,
+    narativeLine1 String,
+    narativeLine2 String,
+
+}
+entity Wallet {
+	walletId String,
+    status String,
+    statusUpdateDateTime String,
+    currency String,
+    accountType String,
+    accountSubType String,
+    description String,
+    schemeName String,
+    identification String
+    
+}
+
+
+relationship OneToOne {
+    KycIncome{kycIncome} to Kyc,
+    KycTransactions{kycTransactions} to Kyc,
+    KycPersonal{kycPersonal} to Kyc
+   
+}
+
+relationship OneToOne {
+   Address {address} to Customer,
+   Kyc{kycInfo} to Customer
+}
+
+
+relationship OneToMany {
+	
+    Wallet{wallet} to Customer
+  
+}
+relationship OneToMany {
+	
+    TopUp{topup} to Wallet,
+    Refund{refund} to Wallet,
+    PeerToPeer{peertopeer} to Wallet
+  
+}
+
