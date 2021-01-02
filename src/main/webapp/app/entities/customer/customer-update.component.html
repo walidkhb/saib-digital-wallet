@@ -140,14 +140,6 @@
                     <input type="text" class="form-control" name="profileStatus" id="field_profileStatus"
                            formControlName="profileStatus"/>
                 </div>
-
-                <div class="form-group">
-                    <label class="form-control-label" jhiTranslate="saibDigitalWalletApp.customer.wallet" for="field_wallet">Wallet</label>
-                    <select class="form-control" id="field_wallet" name="wallet" formControlName="wallet">
-                        <option [ngValue]="null"></option>
-                        <option [ngValue]="walletOption.id === editForm.get('wallet')!.value?.id ? editForm.get('wallet')!.value : walletOption" *ngFor="let walletOption of wallets; trackBy: trackById">{{ walletOption.id }}</option>
-                    </select>
-                </div>
             </div>
 
             <div>

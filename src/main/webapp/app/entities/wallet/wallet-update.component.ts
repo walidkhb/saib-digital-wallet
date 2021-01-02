@@ -7,14 +7,8 @@ import { Observable } from 'rxjs';
 
 import { IWallet, Wallet } from 'app/shared/model/wallet.model';
 import { WalletService } from './wallet.service';
-import { ITopUp } from 'app/shared/model/top-up.model';
-import { TopUpService } from 'app/entities/top-up/top-up.service';
-import { IRefund } from 'app/shared/model/refund.model';
-import { RefundService } from 'app/entities/refund/refund.service';
-import { IPeerToPeer } from 'app/shared/model/peer-to-peer.model';
-import { PeerToPeerService } from 'app/entities/peer-to-peer/peer-to-peer.service';
-
-type SelectableEntity = ITopUp | IRefund | IPeerToPeer;
+import { ICustomer } from 'app/shared/model/customer.model';
+import { CustomerService } from 'app/entities/customer/customer.service';
 
 @Component({
   selector: 'jhi-wallet-update',
@@ -22,9 +16,7 @@ type SelectableEntity = ITopUp | IRefund | IPeerToPeer;
 })
 export class WalletUpdateComponent implements OnInit {
   isSaving = false;
-  topups: ITopUp[] = [];
-  refunds: IRefund[] = [];
-  peertopeers: IPeerToPeer[] = [];
+  customers: ICustomer[] = [];
 
   editForm = this.fb.group({
     id: [],
@@ -37,16 +29,12 @@ export class WalletUpdateComponent implements OnInit {
     description: [],
     schemeName: [],
     identification: [],
-    topUp: [],
-    refund: [],
-    peerToPeer: [],
+    wallet: [],
   });
 
   constructor(
     protected walletService: WalletService,
-    protected topUpService: TopUpService,
-    protected refundService: RefundService,
-    protected peerToPeerService: PeerToPeerService,
+    protected customerService: CustomerService,
     protected activatedRoute: ActivatedRoute,
     private fb: FormBuilder
   ) {}
@@ -55,11 +43,7 @@ export class WalletUpdateComponent implements OnInit {
     this.activatedRoute.data.subscribe(({ wallet }) => {
       this.updateForm(wallet);
 
-      this.topUpService.query().subscribe((res: HttpResponse<ITopUp[]>) => (this.topups = res.body || []));
-
-      this.refundService.query().subscribe((res: HttpResponse<IRefund[]>) => (this.refunds = res.body || []));
-
-      this.peerToPeerService.query().subscribe((res: HttpResponse<IPeerToPeer[]>) => (this.peertopeers = res.body || []));
+      this.customerService.query().subscribe((res: HttpResponse<ICustomer[]>) => (this.customers = res.body || []));
     });
   }
 
@@ -75,9 +59,7 @@ export class WalletUpdateComponent implements OnInit {
       description: wallet.description,
       schemeName: wallet.schemeName,
       identification: wallet.identification,
-      topUp: wallet.topUp,
-      refund: wallet.refund,
-      peerToPeer: wallet.peerToPeer,
+      wallet: wallet.wallet,
     });
   }
 
@@ -108,9 +90,7 @@ export class WalletUpdateComponent implements OnInit {
       description: this.editForm.get(['description'])!.value,
       schemeName: this.editForm.get(['schemeName'])!.value,
       identification: this.editForm.get(['identification'])!.value,
-      topUp: this.editForm.get(['topUp'])!.value,
-      refund: this.editForm.get(['refund'])!.value,
-      peerToPeer: this.editForm.get(['peerToPeer'])!.value,
+      wallet: this.editForm.get(['wallet'])!.value,
     };
   }
 
@@ -130,7 +110,7 @@ export class WalletUpdateComponent implements OnInit {
     this.isSaving = false;
   }
 
-  trackById(index: number, item: SelectableEntity): any {
+  trackById(index: number, item: ICustomer): any {
     return item.id;
   }
 }

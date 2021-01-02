@@ -1,5 +1,6 @@
 package sa.com.saib.web.dgi.domain;
 
+import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 import org.hibernate.annotations.Cache;
 import org.hibernate.annotations.CacheConcurrencyStrategy;
 
@@ -8,8 +9,6 @@ import javax.persistence.*;
 import org.springframework.data.elasticsearch.annotations.FieldType;
 import java.io.Serializable;
 import java.math.BigDecimal;
-import java.util.HashSet;
-import java.util.Set;
 
 /**
  * A Refund.
@@ -39,9 +38,9 @@ public class Refund implements Serializable {
     @Column(name = "narative_line_2")
     private String narativeLine2;
 
-    @OneToMany(mappedBy = "refund")
-    @Cache(usage = CacheConcurrencyStrategy.READ_WRITE)
-    private Set<Wallet> refunds = new HashSet<>();
+    @ManyToOne
+    @JsonIgnoreProperties(value = "refunds", allowSetters = true)
+    private Wallet refund;
 
     // jhipster-needle-entity-add-field - JHipster will add fields here
     public Long getId() {
@@ -104,29 +103,17 @@ public class Refund implements Serializable {
         this.narativeLine2 = narativeLine2;
     }
 
-    public Set<Wallet> getRefunds() {
-        return refunds;
+    public Wallet getRefund() {
+        return refund;
     }
 
-    public Refund refunds(Set<Wallet> wallets) {
-        this.refunds = wallets;
+    public Refund refund(Wallet wallet) {
+        this.refund = wallet;
         return this;
     }
 
-    public Refund addRefund(Wallet wallet) {
-        this.refunds.add(wallet);
-        wallet.setRefund(this);
-        return this;
-    }
-
-    public Refund removeRefund(Wallet wallet) {
-        this.refunds.remove(wallet);
-        wallet.setRefund(null);
-        return this;
-    }
-
-    public void setRefunds(Set<Wallet> wallets) {
-        this.refunds = wallets;
+    public void setRefund(Wallet wallet) {
+        this.refund = wallet;
     }
     // jhipster-needle-entity-add-getters-setters - JHipster will add getters and setters here
 

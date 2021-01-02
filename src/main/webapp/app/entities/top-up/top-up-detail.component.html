@@ -44,6 +44,12 @@
                 <dd>
                     <span>{{ topUp.paymentDetails }}</span>
                 </dd>
+                <dt><span jhiTranslate="saibDigitalWalletApp.topUp.topup">Topup</span></dt>
+                <dd>
+                    <div *ngIf="topUp.topup">
+                        <a [routerLink]="['/wallet', topUp.topup?.id, 'view']">{{ topUp.topup?.id }}</a>
+                    </div>
+                </dd>
             </dl>
 
             <button type="submit"

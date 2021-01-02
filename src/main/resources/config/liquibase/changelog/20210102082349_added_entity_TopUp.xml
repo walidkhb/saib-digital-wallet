@@ -42,6 +42,9 @@
             <column name="payment_details" type="varchar(255)">
                 <constraints nullable="true" />
             </column>
+            <column name="topup_id" type="bigint">
+                <constraints nullable="true" />
+            </column>
             <!-- jhipster-needle-liquibase-add-column - JHipster will add columns here -->
         </createTable>
     </changeSet>

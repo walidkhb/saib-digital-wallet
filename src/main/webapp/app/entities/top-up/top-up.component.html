@@ -50,6 +50,7 @@
                     <th scope="col" ><span jhiTranslate="saibDigitalWalletApp.topUp.narativeLine4">Narative Line 4</span></th>
                     <th scope="col" ><span jhiTranslate="saibDigitalWalletApp.topUp.clientRefNumber">Client Ref Number</span></th>
                     <th scope="col" ><span jhiTranslate="saibDigitalWalletApp.topUp.paymentDetails">Payment Details</span></th>
+                    <th scope="col" ><span jhiTranslate="saibDigitalWalletApp.topUp.topup">Topup</span></th>
                     <th scope="col"></th>
                 </tr>
             </thead>
@@ -65,6 +66,11 @@
                     <td>{{ topUp.narativeLine4 }}</td>
                     <td>{{ topUp.clientRefNumber }}</td>
                     <td>{{ topUp.paymentDetails }}</td>
+                    <td>
+                        <div *ngIf="topUp.topup">
+                            <a [routerLink]="['/wallet', topUp.topup?.id, 'view']" >{{ topUp.topup?.id }}</a>
+                        </div>
+                    </td>
                     <td class="text-right">
                         <div class="btn-group">
                             <button type="submit"

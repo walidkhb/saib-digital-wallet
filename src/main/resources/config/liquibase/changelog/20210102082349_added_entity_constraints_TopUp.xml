@@ -4,15 +4,15 @@
     xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
     xsi:schemaLocation="http://www.liquibase.org/xml/ns/dbchangelog http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-3.9.xsd">
     <!--
-        Added the constraints for entity Wallet.
+        Added the constraints for entity TopUp.
     -->
-    <changeSet id="20210102082549-2" author="jhipster">
+    <changeSet id="20210102082349-2" author="jhipster">
         
-        <addForeignKeyConstraint baseColumnNames="wallet_id"
-                                 baseTableName="wallet"
-                                 constraintName="fk_wallet_wallet_id"
+        <addForeignKeyConstraint baseColumnNames="topup_id"
+                                 baseTableName="top_up"
+                                 constraintName="fk_top_up_topup_id"
                                  referencedColumnNames="id"
-                                 referencedTableName="customer"/>
+                                 referencedTableName="wallet"/>
 
     </changeSet>
 </databaseChangeLog>

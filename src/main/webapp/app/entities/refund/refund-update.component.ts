@@ -7,6 +7,8 @@ import { Observable } from 'rxjs';
 
 import { IRefund, Refund } from 'app/shared/model/refund.model';
 import { RefundService } from './refund.service';
+import { IWallet } from 'app/shared/model/wallet.model';
+import { WalletService } from 'app/entities/wallet/wallet.service';
 
 @Component({
   selector: 'jhi-refund-update',
@@ -14,6 +16,7 @@ import { RefundService } from './refund.service';
 })
 export class RefundUpdateComponent implements OnInit {
   isSaving = false;
+  wallets: IWallet[] = [];
 
   editForm = this.fb.group({
     id: [],
@@ -21,13 +24,21 @@ export class RefundUpdateComponent implements OnInit {
     currency: [],
     narativeLine1: [],
     narativeLine2: [],
+    refund: [],
   });
 
-  constructor(protected refundService: RefundService, protected activatedRoute: ActivatedRoute, private fb: FormBuilder) {}
+  constructor(
+    protected refundService: RefundService,
+    protected walletService: WalletService,
+    protected activatedRoute: ActivatedRoute,
+    private fb: FormBuilder
+  ) {}
 
   ngOnInit(): void {
     this.activatedRoute.data.subscribe(({ refund }) => {
       this.updateForm(refund);
+
+      this.walletService.query().subscribe((res: HttpResponse<IWallet[]>) => (this.wallets = res.body || []));
     });
   }
 
@@ -38,6 +49,7 @@ export class RefundUpdateComponent implements OnInit {
       currency: refund.currency,
       narativeLine1: refund.narativeLine1,
       narativeLine2: refund.narativeLine2,
+      refund: refund.refund,
     });
   }
 
@@ -63,6 +75,7 @@ export class RefundUpdateComponent implements OnInit {
       currency: this.editForm.get(['currency'])!.value,
       narativeLine1: this.editForm.get(['narativeLine1'])!.value,
       narativeLine2: this.editForm.get(['narativeLine2'])!.value,
+      refund: this.editForm.get(['refund'])!.value,
     };
   }
 
@@ -80,5 +93,9 @@ export class RefundUpdateComponent implements OnInit {
 
   protected onSaveError(): void {
     this.isSaving = false;
+  }
+
+  trackById(index: number, item: IWallet): any {
+    return item.id;
   }
 }

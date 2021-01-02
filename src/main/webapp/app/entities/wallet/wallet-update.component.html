@@ -66,26 +66,10 @@
                 </div>
 
                 <div class="form-group">
-                    <label class="form-control-label" jhiTranslate="saibDigitalWalletApp.wallet.topUp" for="field_topUp">Top Up</label>
-                    <select class="form-control" id="field_topUp" name="topUp" formControlName="topUp">
+                    <label class="form-control-label" jhiTranslate="saibDigitalWalletApp.wallet.wallet" for="field_wallet">Wallet</label>
+                    <select class="form-control" id="field_wallet" name="wallet" formControlName="wallet">
                         <option [ngValue]="null"></option>
-                        <option [ngValue]="topUpOption.id === editForm.get('topUp')!.value?.id ? editForm.get('topUp')!.value : topUpOption" *ngFor="let topUpOption of topups; trackBy: trackById">{{ topUpOption.id }}</option>
-                    </select>
-                </div>
-
-                <div class="form-group">
-                    <label class="form-control-label" jhiTranslate="saibDigitalWalletApp.wallet.refund" for="field_refund">Refund</label>
-                    <select class="form-control" id="field_refund" name="refund" formControlName="refund">
-                        <option [ngValue]="null"></option>
-                        <option [ngValue]="refundOption.id === editForm.get('refund')!.value?.id ? editForm.get('refund')!.value : refundOption" *ngFor="let refundOption of refunds; trackBy: trackById">{{ refundOption.id }}</option>
-                    </select>
-                </div>
-
-                <div class="form-group">
-                    <label class="form-control-label" jhiTranslate="saibDigitalWalletApp.wallet.peerToPeer" for="field_peerToPeer">Peer To Peer</label>
-                    <select class="form-control" id="field_peerToPeer" name="peerToPeer" formControlName="peerToPeer">
-                        <option [ngValue]="null"></option>
-                        <option [ngValue]="peerToPeerOption.id === editForm.get('peerToPeer')!.value?.id ? editForm.get('peerToPeer')!.value : peerToPeerOption" *ngFor="let peerToPeerOption of peertopeers; trackBy: trackById">{{ peerToPeerOption.id }}</option>
+                        <option [ngValue]="customerOption.id === editForm.get('wallet')!.value?.id ? editForm.get('wallet')!.value : customerOption" *ngFor="let customerOption of customers; trackBy: trackById">{{ customerOption.id }}</option>
                     </select>
                 </div>
             </div>

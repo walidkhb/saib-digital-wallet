@@ -1,7 +1,4 @@
 import { ICustomer } from 'app/shared/model/customer.model';
-import { ITopUp } from 'app/shared/model/top-up.model';
-import { IRefund } from 'app/shared/model/refund.model';
-import { IPeerToPeer } from 'app/shared/model/peer-to-peer.model';
 
 export interface IWallet {
   id?: number;
@@ -14,10 +11,7 @@ export interface IWallet {
   description?: string;
   schemeName?: string;
   identification?: string;
-  wallets?: ICustomer[];
-  topUp?: ITopUp;
-  refund?: IRefund;
-  peerToPeer?: IPeerToPeer;
+  wallet?: ICustomer;
 }
 
 export class Wallet implements IWallet {
@@ -32,9 +26,6 @@ export class Wallet implements IWallet {
     public description?: string,
     public schemeName?: string,
     public identification?: string,
-    public wallets?: ICustomer[],
-    public topUp?: ITopUp,
-    public refund?: IRefund,
-    public peerToPeer?: IPeerToPeer
+    public wallet?: ICustomer
   ) {}
 }

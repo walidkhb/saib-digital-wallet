@@ -72,9 +72,6 @@
             <column name="profile_status" type="varchar(255)">
                 <constraints nullable="true" />
             </column>
-            <column name="wallet_id" type="bigint">
-                <constraints nullable="true" />
-            </column>
             <!-- jhipster-needle-liquibase-add-column - JHipster will add columns here -->
         </createTable>
     </changeSet>

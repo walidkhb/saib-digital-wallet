@@ -64,6 +64,14 @@
                     <input type="text" class="form-control" name="paymentDetails" id="field_paymentDetails"
                            formControlName="paymentDetails"/>
                 </div>
+
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="saibDigitalWalletApp.topUp.topup" for="field_topup">Topup</label>
+                    <select class="form-control" id="field_topup" name="topup" formControlName="topup">
+                        <option [ngValue]="null"></option>
+                        <option [ngValue]="walletOption.id === editForm.get('topup')!.value?.id ? editForm.get('topup')!.value : walletOption" *ngFor="let walletOption of wallets; trackBy: trackById">{{ walletOption.id }}</option>
+                    </select>
+                </div>
             </div>
 
             <div>

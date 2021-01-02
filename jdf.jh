@@ -100,7 +100,7 @@ entity Wallet {
 }
 
 
-relationship OneToOne {
+relationship ManyToOne {
     KycIncome{kycIncome} to Kyc,
     KycTransactions{kycTransactions} to Kyc,
     KycPersonal{kycPersonal} to Kyc
@@ -113,12 +113,12 @@ relationship OneToOne {
 }
 
 
-relationship OneToMany {
+relationship ManyToOne {
 	
     Wallet{wallet} to Customer
   
 }
-relationship OneToMany {
+relationship ManyToOne {
 	
     TopUp{topup} to Wallet,
     Refund{refund} to Wallet,

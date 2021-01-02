@@ -7,6 +7,8 @@ import { Observable } from 'rxjs';
 
 import { ITopUp, TopUp } from 'app/shared/model/top-up.model';
 import { TopUpService } from './top-up.service';
+import { IWallet } from 'app/shared/model/wallet.model';
+import { WalletService } from 'app/entities/wallet/wallet.service';
 
 @Component({
   selector: 'jhi-top-up-update',
@@ -14,6 +16,7 @@ import { TopUpService } from './top-up.service';
 })
 export class TopUpUpdateComponent implements OnInit {
   isSaving = false;
+  wallets: IWallet[] = [];
 
   editForm = this.fb.group({
     id: [],
@@ -26,13 +29,21 @@ export class TopUpUpdateComponent implements OnInit {
     narativeLine4: [],
     clientRefNumber: [],
     paymentDetails: [],
+    topup: [],
   });
 
-  constructor(protected topUpService: TopUpService, protected activatedRoute: ActivatedRoute, private fb: FormBuilder) {}
+  constructor(
+    protected topUpService: TopUpService,
+    protected walletService: WalletService,
+    protected activatedRoute: ActivatedRoute,
+    private fb: FormBuilder
+  ) {}
 
   ngOnInit(): void {
     this.activatedRoute.data.subscribe(({ topUp }) => {
       this.updateForm(topUp);
+
+      this.walletService.query().subscribe((res: HttpResponse<IWallet[]>) => (this.wallets = res.body || []));
     });
   }
 
@@ -48,6 +59,7 @@ export class TopUpUpdateComponent implements OnInit {
       narativeLine4: topUp.narativeLine4,
       clientRefNumber: topUp.clientRefNumber,
       paymentDetails: topUp.paymentDetails,
+      topup: topUp.topup,
     });
   }
 
@@ -78,6 +90,7 @@ export class TopUpUpdateComponent implements OnInit {
       narativeLine4: this.editForm.get(['narativeLine4'])!.value,
       clientRefNumber: this.editForm.get(['clientRefNumber'])!.value,
       paymentDetails: this.editForm.get(['paymentDetails'])!.value,
+      topup: this.editForm.get(['topup'])!.value,
     };
   }
 
@@ -95,5 +108,9 @@ export class TopUpUpdateComponent implements OnInit {
 
   protected onSaveError(): void {
     this.isSaving = false;
+  }
+
+  trackById(index: number, item: IWallet): any {
+    return item.id;
   }
 }

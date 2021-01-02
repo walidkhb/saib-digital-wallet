@@ -40,30 +40,10 @@
   ],
   "relationships": [
     {
-      "relationshipType": "one-to-many",
+      "relationshipType": "many-to-one",
       "otherEntityName": "customer",
       "otherEntityRelationshipName": "wallet",
-      "relationshipName": "wallet"
-    },
-    {
-      "relationshipType": "many-to-one",
-      "otherEntityName": "topUp",
-      "otherEntityRelationshipName": "topup",
-      "relationshipName": "topUp",
-      "otherEntityField": "id"
-    },
-    {
-      "relationshipType": "many-to-one",
-      "otherEntityName": "refund",
-      "otherEntityRelationshipName": "refund",
-      "relationshipName": "refund",
-      "otherEntityField": "id"
-    },
-    {
-      "relationshipType": "many-to-one",
-      "otherEntityName": "peerToPeer",
-      "otherEntityRelationshipName": "peertopeer",
-      "relationshipName": "peerToPeer",
+      "relationshipName": "wallet",
       "otherEntityField": "id"
     }
   ],

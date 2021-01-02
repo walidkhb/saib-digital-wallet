@@ -6,7 +6,7 @@ export interface IRefund {
   currency?: string;
   narativeLine1?: string;
   narativeLine2?: string;
-  refunds?: IWallet[];
+  refund?: IWallet;
 }
 
 export class Refund implements IRefund {
@@ -16,6 +16,6 @@ export class Refund implements IRefund {
     public currency?: string,
     public narativeLine1?: string,
     public narativeLine2?: string,
-    public refunds?: IWallet[]
+    public refund?: IWallet
   ) {}
 }

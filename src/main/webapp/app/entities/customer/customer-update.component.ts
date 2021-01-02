@@ -7,8 +7,6 @@ import { Observable } from 'rxjs';
 
 import { ICustomer, Customer } from 'app/shared/model/customer.model';
 import { CustomerService } from './customer.service';
-import { IWallet } from 'app/shared/model/wallet.model';
-import { WalletService } from 'app/entities/wallet/wallet.service';
 
 @Component({
   selector: 'jhi-customer-update',
@@ -16,7 +14,6 @@ import { WalletService } from 'app/entities/wallet/wallet.service';
 })
 export class CustomerUpdateComponent implements OnInit {
   isSaving = false;
-  wallets: IWallet[] = [];
   dateOfBirthDp: any;
 
   editForm = this.fb.group({
@@ -40,21 +37,13 @@ export class CustomerUpdateComponent implements OnInit {
     maritalStatus: [],
     customerId: [],
     profileStatus: [],
-    wallet: [],
   });
 
-  constructor(
-    protected customerService: CustomerService,
-    protected walletService: WalletService,
-    protected activatedRoute: ActivatedRoute,
-    private fb: FormBuilder
-  ) {}
+  constructor(protected customerService: CustomerService, protected activatedRoute: ActivatedRoute, private fb: FormBuilder) {}
 
   ngOnInit(): void {
     this.activatedRoute.data.subscribe(({ customer }) => {
       this.updateForm(customer);
-
-      this.walletService.query().subscribe((res: HttpResponse<IWallet[]>) => (this.wallets = res.body || []));
     });
   }
 
@@ -80,7 +69,6 @@ export class CustomerUpdateComponent implements OnInit {
       maritalStatus: customer.maritalStatus,
       customerId: customer.customerId,
       profileStatus: customer.profileStatus,
-      wallet: customer.wallet,
     });
   }
 
@@ -121,7 +109,6 @@ export class CustomerUpdateComponent implements OnInit {
       maritalStatus: this.editForm.get(['maritalStatus'])!.value,
       customerId: this.editForm.get(['customerId'])!.value,
       profileStatus: this.editForm.get(['profileStatus'])!.value,
-      wallet: this.editForm.get(['wallet'])!.value,
     };
   }
 
@@ -139,9 +126,5 @@ export class CustomerUpdateComponent implements OnInit {
 
   protected onSaveError(): void {
     this.isSaving = false;
-  }
-
-  trackById(index: number, item: IWallet): any {
-    return item.id;
   }
 }

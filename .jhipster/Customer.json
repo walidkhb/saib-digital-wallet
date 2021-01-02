@@ -86,15 +86,7 @@
       "fieldType": "String"
     }
   ],
-  "relationships": [
-    {
-      "relationshipType": "many-to-one",
-      "otherEntityName": "wallet",
-      "otherEntityRelationshipName": "wallet",
-      "relationshipName": "wallet",
-      "otherEntityField": "id"
-    }
-  ],
+  "relationships": [],
   "changelogDate": "20210102081649",
   "entityTableName": "customer",
   "dto": "no",

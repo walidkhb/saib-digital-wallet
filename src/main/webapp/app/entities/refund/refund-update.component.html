@@ -34,6 +34,14 @@
                     <input type="text" class="form-control" name="narativeLine2" id="field_narativeLine2"
                            formControlName="narativeLine2"/>
                 </div>
+
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="saibDigitalWalletApp.refund.refund" for="field_refund">Refund</label>
+                    <select class="form-control" id="field_refund" name="refund" formControlName="refund">
+                        <option [ngValue]="null"></option>
+                        <option [ngValue]="walletOption.id === editForm.get('refund')!.value?.id ? editForm.get('refund')!.value : walletOption" *ngFor="let walletOption of wallets; trackBy: trackById">{{ walletOption.id }}</option>
+                    </select>
+                </div>
             </div>
 
             <div>

@@ -35,8 +35,7 @@
       "idExpiryDate": "Id Expiry Date",
       "maritalStatus": "Marital Status",
       "customerId": "Customer Id",
-      "profileStatus": "Profile Status",
-      "wallet": "Wallet"
+      "profileStatus": "Profile Status"
     }
   }
 }

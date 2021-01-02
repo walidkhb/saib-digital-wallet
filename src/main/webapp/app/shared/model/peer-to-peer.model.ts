@@ -8,7 +8,7 @@ export interface IPeerToPeer {
   purposeOfTransfer?: string;
   transactionType?: string;
   paymentDetails?: string;
-  peertopeers?: IWallet[];
+  peertopeer?: IWallet;
 }
 
 export class PeerToPeer implements IPeerToPeer {
@@ -20,6 +20,6 @@ export class PeerToPeer implements IPeerToPeer {
     public purposeOfTransfer?: string,
     public transactionType?: string,
     public paymentDetails?: string,
-    public peertopeers?: IWallet[]
+    public peertopeer?: IWallet
   ) {}
 }

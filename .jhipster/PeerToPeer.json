@@ -28,10 +28,11 @@
   ],
   "relationships": [
     {
-      "relationshipType": "one-to-many",
+      "relationshipType": "many-to-one",
       "otherEntityName": "wallet",
       "otherEntityRelationshipName": "peerToPeer",
-      "relationshipName": "peertopeer"
+      "relationshipName": "peertopeer",
+      "otherEntityField": "id"
     }
   ],
   "changelogDate": "20210102082249",

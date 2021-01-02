@@ -1,5 +1,6 @@
 package sa.com.saib.web.dgi.domain;
 
+import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 import org.hibernate.annotations.Cache;
 import org.hibernate.annotations.CacheConcurrencyStrategy;
 
@@ -8,8 +9,6 @@ import javax.persistence.*;
 import org.springframework.data.elasticsearch.annotations.FieldType;
 import java.io.Serializable;
 import java.math.BigDecimal;
-import java.util.HashSet;
-import java.util.Set;
 
 /**
  * A PeerToPeer.
@@ -45,9 +44,9 @@ public class PeerToPeer implements Serializable {
     @Column(name = "payment_details")
     private String paymentDetails;
 
-    @OneToMany(mappedBy = "peerToPeer")
-    @Cache(usage = CacheConcurrencyStrategy.READ_WRITE)
-    private Set<Wallet> peertopeers = new HashSet<>();
+    @ManyToOne
+    @JsonIgnoreProperties(value = "peerToPeers", allowSetters = true)
+    private Wallet peertopeer;
 
     // jhipster-needle-entity-add-field - JHipster will add fields here
     public Long getId() {
@@ -136,29 +135,17 @@ public class PeerToPeer implements Serializable {
         this.paymentDetails = paymentDetails;
     }
 
-    public Set<Wallet> getPeertopeers() {
-        return peertopeers;
+    public Wallet getPeertopeer() {
+        return peertopeer;
     }
 
-    public PeerToPeer peertopeers(Set<Wallet> wallets) {
-        this.peertopeers = wallets;
+    public PeerToPeer peertopeer(Wallet wallet) {
+        this.peertopeer = wallet;
         return this;
     }
 
-    public PeerToPeer addPeertopeer(Wallet wallet) {
-        this.peertopeers.add(wallet);
-        wallet.setPeerToPeer(this);
-        return this;
-    }
-
-    public PeerToPeer removePeertopeer(Wallet wallet) {
-        this.peertopeers.remove(wallet);
-        wallet.setPeerToPeer(null);
-        return this;
-    }
-
-    public void setPeertopeers(Set<Wallet> wallets) {
-        this.peertopeers = wallets;
+    public void setPeertopeer(Wallet wallet) {
+        this.peertopeer = wallet;
     }
     // jhipster-needle-entity-add-getters-setters - JHipster will add getters and setters here
 

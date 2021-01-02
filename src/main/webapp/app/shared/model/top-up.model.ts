@@ -11,7 +11,7 @@ export interface ITopUp {
   narativeLine4?: string;
   clientRefNumber?: string;
   paymentDetails?: string;
-  topups?: IWallet[];
+  topup?: IWallet;
 }
 
 export class TopUp implements ITopUp {
@@ -26,6 +26,6 @@ export class TopUp implements ITopUp {
     public narativeLine4?: string,
     public clientRefNumber?: string,
     public paymentDetails?: string,
-    public topups?: IWallet[]
+    public topup?: IWallet
   ) {}
 }

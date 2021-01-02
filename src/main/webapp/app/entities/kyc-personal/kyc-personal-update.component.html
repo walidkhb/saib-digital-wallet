@@ -39,7 +39,7 @@
                     <label class="form-control-label" jhiTranslate="saibDigitalWalletApp.kycPersonal.kycPersonal" for="field_kycPersonal">Kyc Personal</label>
                     <select class="form-control" id="field_kycPersonal" name="kycPersonal" formControlName="kycPersonal">
                         <option [ngValue]="null"></option>
-                        <option [ngValue]="kycOption.id === editForm.get('kycPersonal')!.value?.id ? editForm.get('kycPersonal')!.value : kycOption" *ngFor="let kycOption of kycpersonals; trackBy: trackById">{{ kycOption.id }}</option>
+                        <option [ngValue]="kycOption.id === editForm.get('kycPersonal')!.value?.id ? editForm.get('kycPersonal')!.value : kycOption" *ngFor="let kycOption of kycs; trackBy: trackById">{{ kycOption.id }}</option>
                     </select>
                 </div>
             </div>

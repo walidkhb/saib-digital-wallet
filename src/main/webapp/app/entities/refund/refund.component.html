@@ -45,6 +45,7 @@
                     <th scope="col" ><span jhiTranslate="saibDigitalWalletApp.refund.currency">Currency</span></th>
                     <th scope="col" ><span jhiTranslate="saibDigitalWalletApp.refund.narativeLine1">Narative Line 1</span></th>
                     <th scope="col" ><span jhiTranslate="saibDigitalWalletApp.refund.narativeLine2">Narative Line 2</span></th>
+                    <th scope="col" ><span jhiTranslate="saibDigitalWalletApp.refund.refund">Refund</span></th>
                     <th scope="col"></th>
                 </tr>
             </thead>
@@ -55,6 +56,11 @@
                     <td>{{ refund.currency }}</td>
                     <td>{{ refund.narativeLine1 }}</td>
                     <td>{{ refund.narativeLine2 }}</td>
+                    <td>
+                        <div *ngIf="refund.refund">
+                            <a [routerLink]="['/wallet', refund.refund?.id, 'view']" >{{ refund.refund?.id }}</a>
+                        </div>
+                    </td>
                     <td class="text-right">
                         <div class="btn-group">
                             <button type="submit"

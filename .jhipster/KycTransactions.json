@@ -28,12 +28,11 @@
   ],
   "relationships": [
     {
-      "relationshipType": "one-to-one",
+      "relationshipType": "many-to-one",
       "otherEntityName": "kyc",
       "otherEntityRelationshipName": "kycTransactions",
       "relationshipName": "kycTransactions",
-      "otherEntityField": "id",
-      "ownerSide": true
+      "otherEntityField": "id"
     }
   ],
   "changelogDate": "20210102082049",

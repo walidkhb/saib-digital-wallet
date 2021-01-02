@@ -4,7 +4,6 @@ import { HttpResponse } from '@angular/common/http';
 import { FormBuilder, Validators } from '@angular/forms';
 import { ActivatedRoute } from '@angular/router';
 import { Observable } from 'rxjs';
-import { map } from 'rxjs/operators';
 
 import { IKycTransactions, KycTransactions } from 'app/shared/model/kyc-transactions.model';
 import { KycTransactionsService } from './kyc-transactions.service';
@@ -17,7 +16,7 @@ import { KycService } from 'app/entities/kyc/kyc.service';
 })
 export class KycTransactionsUpdateComponent implements OnInit {
   isSaving = false;
-  kyctransactions: IKyc[] = [];
+  kycs: IKyc[] = [];
 
   editForm = this.fb.group({
     id: [],
@@ -41,27 +40,7 @@ export class KycTransactionsUpdateComponent implements OnInit {
     this.activatedRoute.data.subscribe(({ kycTransactions }) => {
       this.updateForm(kycTransactions);
 
-      this.kycService
-        .query({ filter: 'kyctransactions-is-null' })
-        .pipe(
-          map((res: HttpResponse<IKyc[]>) => {
-            return res.body || [];
-          })
-        )
-        .subscribe((resBody: IKyc[]) => {
-          if (!kycTransactions.kycTransactions || !kycTransactions.kycTransactions.id) {
-            this.kyctransactions = resBody;
-          } else {
-            this.kycService
-              .find(kycTransactions.kycTransactions.id)
-              .pipe(
-                map((subRes: HttpResponse<IKyc>) => {
-                  return subRes.body ? [subRes.body].concat(resBody) : resBody;
-                })
-              )
-              .subscribe((concatRes: IKyc[]) => (this.kyctransactions = concatRes));
-          }
-        });
+      this.kycService.query().subscribe((res: HttpResponse<IKyc[]>) => (this.kycs = res.body || []));
     });
   }
 

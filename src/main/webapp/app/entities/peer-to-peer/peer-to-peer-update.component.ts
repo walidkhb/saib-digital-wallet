@@ -7,6 +7,8 @@ import { Observable } from 'rxjs';
 
 import { IPeerToPeer, PeerToPeer } from 'app/shared/model/peer-to-peer.model';
 import { PeerToPeerService } from './peer-to-peer.service';
+import { IWallet } from 'app/shared/model/wallet.model';
+import { WalletService } from 'app/entities/wallet/wallet.service';
 
 @Component({
   selector: 'jhi-peer-to-peer-update',
@@ -14,6 +16,7 @@ import { PeerToPeerService } from './peer-to-peer.service';
 })
 export class PeerToPeerUpdateComponent implements OnInit {
   isSaving = false;
+  wallets: IWallet[] = [];
 
   editForm = this.fb.group({
     id: [],
@@ -23,13 +26,21 @@ export class PeerToPeerUpdateComponent implements OnInit {
     purposeOfTransfer: [],
     transactionType: [],
     paymentDetails: [],
+    peertopeer: [],
   });
 
-  constructor(protected peerToPeerService: PeerToPeerService, protected activatedRoute: ActivatedRoute, private fb: FormBuilder) {}
+  constructor(
+    protected peerToPeerService: PeerToPeerService,
+    protected walletService: WalletService,
+    protected activatedRoute: ActivatedRoute,
+    private fb: FormBuilder
+  ) {}
 
   ngOnInit(): void {
     this.activatedRoute.data.subscribe(({ peerToPeer }) => {
       this.updateForm(peerToPeer);
+
+      this.walletService.query().subscribe((res: HttpResponse<IWallet[]>) => (this.wallets = res.body || []));
     });
   }
 
@@ -42,6 +53,7 @@ export class PeerToPeerUpdateComponent implements OnInit {
       purposeOfTransfer: peerToPeer.purposeOfTransfer,
       transactionType: peerToPeer.transactionType,
       paymentDetails: peerToPeer.paymentDetails,
+      peertopeer: peerToPeer.peertopeer,
     });
   }
 
@@ -69,6 +81,7 @@ export class PeerToPeerUpdateComponent implements OnInit {
       purposeOfTransfer: this.editForm.get(['purposeOfTransfer'])!.value,
       transactionType: this.editForm.get(['transactionType'])!.value,
       paymentDetails: this.editForm.get(['paymentDetails'])!.value,
+      peertopeer: this.editForm.get(['peertopeer'])!.value,
     };
   }
 
@@ -86,5 +99,9 @@ export class PeerToPeerUpdateComponent implements OnInit {
 
   protected onSaveError(): void {
     this.isSaving = false;
+  }
+
+  trackById(index: number, item: IWallet): any {
+    return item.id;
   }
 }

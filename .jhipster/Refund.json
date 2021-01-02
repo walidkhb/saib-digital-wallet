@@ -20,10 +20,11 @@
   ],
   "relationships": [
     {
-      "relationshipType": "one-to-many",
+      "relationshipType": "many-to-one",
       "otherEntityName": "wallet",
       "otherEntityRelationshipName": "refund",
-      "relationshipName": "refund"
+      "relationshipName": "refund",
+      "otherEntityField": "id"
     }
   ],
   "changelogDate": "20210102082449",
