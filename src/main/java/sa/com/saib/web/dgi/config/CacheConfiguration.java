@@ -47,6 +47,20 @@ public class CacheConfiguration {
             createCache(cm, sa.com.saib.web.dgi.domain.User.class.getName());
             createCache(cm, sa.com.saib.web.dgi.domain.Authority.class.getName());
             createCache(cm, sa.com.saib.web.dgi.domain.User.class.getName() + ".authorities");
+            createCache(cm, sa.com.saib.web.dgi.domain.Customer.class.getName());
+            createCache(cm, sa.com.saib.web.dgi.domain.Address.class.getName());
+            createCache(cm, sa.com.saib.web.dgi.domain.Kyc.class.getName());
+            createCache(cm, sa.com.saib.web.dgi.domain.KycIncome.class.getName());
+            createCache(cm, sa.com.saib.web.dgi.domain.KycTransactions.class.getName());
+            createCache(cm, sa.com.saib.web.dgi.domain.KycPersonal.class.getName());
+            createCache(cm, sa.com.saib.web.dgi.domain.PeerToPeer.class.getName());
+            createCache(cm, sa.com.saib.web.dgi.domain.PeerToPeer.class.getName() + ".peertopeers");
+            createCache(cm, sa.com.saib.web.dgi.domain.TopUp.class.getName());
+            createCache(cm, sa.com.saib.web.dgi.domain.TopUp.class.getName() + ".topups");
+            createCache(cm, sa.com.saib.web.dgi.domain.Refund.class.getName());
+            createCache(cm, sa.com.saib.web.dgi.domain.Refund.class.getName() + ".refunds");
+            createCache(cm, sa.com.saib.web.dgi.domain.Wallet.class.getName());
+            createCache(cm, sa.com.saib.web.dgi.domain.Wallet.class.getName() + ".wallets");
             // jhipster-needle-ehcache-add-entry
         };
     }

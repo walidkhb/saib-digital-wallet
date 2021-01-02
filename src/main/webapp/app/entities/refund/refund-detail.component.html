@@ -1,0 +1,42 @@
+<div class="row justify-content-center">
+    <div class="col-8">
+        <div *ngIf="refund">
+            <h2><span jhiTranslate="saibDigitalWalletApp.refund.detail.title">Refund</span> {{ refund.id }}</h2>
+
+            <hr>
+
+            <jhi-alert-error></jhi-alert-error>
+
+            <dl class="row-md jh-entity-details">
+                <dt><span jhiTranslate="saibDigitalWalletApp.refund.amount">Amount</span></dt>
+                <dd>
+                    <span>{{ refund.amount }}</span>
+                </dd>
+                <dt><span jhiTranslate="saibDigitalWalletApp.refund.currency">Currency</span></dt>
+                <dd>
+                    <span>{{ refund.currency }}</span>
+                </dd>
+                <dt><span jhiTranslate="saibDigitalWalletApp.refund.narativeLine1">Narative Line 1</span></dt>
+                <dd>
+                    <span>{{ refund.narativeLine1 }}</span>
+                </dd>
+                <dt><span jhiTranslate="saibDigitalWalletApp.refund.narativeLine2">Narative Line 2</span></dt>
+                <dd>
+                    <span>{{ refund.narativeLine2 }}</span>
+                </dd>
+            </dl>
+
+            <button type="submit"
+                    (click)="previousState()"
+                    class="btn btn-info">
+                <fa-icon icon="arrow-left"></fa-icon>&nbsp;<span jhiTranslate="entity.action.back">Back</span>
+            </button>
+
+            <button type="button"
+                    [routerLink]="['/refund', refund.id, 'edit']"
+                    class="btn btn-primary">
+                <fa-icon icon="pencil-alt"></fa-icon>&nbsp;<span jhiTranslate="entity.action.edit">Edit</span>
+            </button>
+        </div>
+    </div>
+</div>

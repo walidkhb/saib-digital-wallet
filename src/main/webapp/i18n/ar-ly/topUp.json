@@ -1,0 +1,32 @@
+{
+  "saibDigitalWalletApp": {
+    "topUp": {
+      "home": {
+        "title": "Top Ups",
+        "createLabel": "Create a new Top Up",
+        "createOrEditLabel": "Create or edit a Top Up",
+        "search": "Search for Top Up",
+        "notFound": "No Top Ups found"
+      },
+      "created": "A new Top Up is created with identifier {{ param }}",
+      "updated": "A Top Up is updated with identifier {{ param }}",
+      "deleted": "A Top Up is deleted with identifier {{ param }}",
+      "delete": {
+        "question": "Are you sure you want to delete Top Up {{ id }}?"
+      },
+      "detail": {
+        "title": "Top Up"
+      },
+      "amount": "Amount",
+      "currency": "Currency",
+      "transactionType": "Transaction Type",
+      "narativeLine1": "Narative Line 1",
+      "narativeLine2": "Narative Line 2",
+      "narativeLine3": "Narative Line 3",
+      "narativeLine4": "Narative Line 4",
+      "clientRefNumber": "Client Ref Number",
+      "paymentDetails": "Payment Details",
+      "topup": "Topup"
+    }
+  }
+}

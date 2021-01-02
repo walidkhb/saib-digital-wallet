@@ -1,0 +1,50 @@
+<div class="row justify-content-center">
+    <div class="col-8">
+        <div *ngIf="peerToPeer">
+            <h2><span jhiTranslate="saibDigitalWalletApp.peerToPeer.detail.title">Peer To Peer</span> {{ peerToPeer.id }}</h2>
+
+            <hr>
+
+            <jhi-alert-error></jhi-alert-error>
+
+            <dl class="row-md jh-entity-details">
+                <dt><span jhiTranslate="saibDigitalWalletApp.peerToPeer.amount">Amount</span></dt>
+                <dd>
+                    <span>{{ peerToPeer.amount }}</span>
+                </dd>
+                <dt><span jhiTranslate="saibDigitalWalletApp.peerToPeer.currency">Currency</span></dt>
+                <dd>
+                    <span>{{ peerToPeer.currency }}</span>
+                </dd>
+                <dt><span jhiTranslate="saibDigitalWalletApp.peerToPeer.beneficiaryRelationship">Beneficiary Relationship</span></dt>
+                <dd>
+                    <span>{{ peerToPeer.beneficiaryRelationship }}</span>
+                </dd>
+                <dt><span jhiTranslate="saibDigitalWalletApp.peerToPeer.purposeOfTransfer">Purpose Of Transfer</span></dt>
+                <dd>
+                    <span>{{ peerToPeer.purposeOfTransfer }}</span>
+                </dd>
+                <dt><span jhiTranslate="saibDigitalWalletApp.peerToPeer.transactionType">Transaction Type</span></dt>
+                <dd>
+                    <span>{{ peerToPeer.transactionType }}</span>
+                </dd>
+                <dt><span jhiTranslate="saibDigitalWalletApp.peerToPeer.paymentDetails">Payment Details</span></dt>
+                <dd>
+                    <span>{{ peerToPeer.paymentDetails }}</span>
+                </dd>
+            </dl>
+
+            <button type="submit"
+                    (click)="previousState()"
+                    class="btn btn-info">
+                <fa-icon icon="arrow-left"></fa-icon>&nbsp;<span jhiTranslate="entity.action.back">Back</span>
+            </button>
+
+            <button type="button"
+                    [routerLink]="['/peer-to-peer', peerToPeer.id, 'edit']"
+                    class="btn btn-primary">
+                <fa-icon icon="pencil-alt"></fa-icon>&nbsp;<span jhiTranslate="entity.action.edit">Edit</span>
+            </button>
+        </div>
+    </div>
+</div>

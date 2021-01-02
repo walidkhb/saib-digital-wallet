@@ -1,0 +1,48 @@
+<div class="row justify-content-center">
+    <div class="col-8">
+        <div *ngIf="kycIncome">
+            <h2><span jhiTranslate="saibDigitalWalletApp.kycIncome.detail.title">Kyc Income</span> {{ kycIncome.id }}</h2>
+
+            <hr>
+
+            <jhi-alert-error></jhi-alert-error>
+
+            <dl class="row-md jh-entity-details">
+                <dt><span jhiTranslate="saibDigitalWalletApp.kycIncome.primarySource">Primary Source</span></dt>
+                <dd>
+                    <span>{{ kycIncome.primarySource }}</span>
+                </dd>
+                <dt><span jhiTranslate="saibDigitalWalletApp.kycIncome.primaryAmount">Primary Amount</span></dt>
+                <dd>
+                    <span>{{ kycIncome.primaryAmount }}</span>
+                </dd>
+                <dt><span jhiTranslate="saibDigitalWalletApp.kycIncome.pecondarySource">Pecondary Source</span></dt>
+                <dd>
+                    <span>{{ kycIncome.pecondarySource }}</span>
+                </dd>
+                <dt><span jhiTranslate="saibDigitalWalletApp.kycIncome.pecondaryAmount">Pecondary Amount</span></dt>
+                <dd>
+                    <span>{{ kycIncome.pecondaryAmount }}</span>
+                </dd>
+                <dt><span jhiTranslate="saibDigitalWalletApp.kycIncome.kycIncome">Kyc Income</span></dt>
+                <dd>
+                    <div *ngIf="kycIncome.kycIncome">
+                        <a [routerLink]="['/kyc', kycIncome.kycIncome?.id, 'view']">{{ kycIncome.kycIncome?.id }}</a>
+                    </div>
+                </dd>
+            </dl>
+
+            <button type="submit"
+                    (click)="previousState()"
+                    class="btn btn-info">
+                <fa-icon icon="arrow-left"></fa-icon>&nbsp;<span jhiTranslate="entity.action.back">Back</span>
+            </button>
+
+            <button type="button"
+                    [routerLink]="['/kyc-income', kycIncome.id, 'edit']"
+                    class="btn btn-primary">
+                <fa-icon icon="pencil-alt"></fa-icon>&nbsp;<span jhiTranslate="entity.action.edit">Edit</span>
+            </button>
+        </div>
+    </div>
+</div>

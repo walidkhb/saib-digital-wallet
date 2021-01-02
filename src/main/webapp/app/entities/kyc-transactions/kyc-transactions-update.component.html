@@ -1,0 +1,70 @@
+<div class="row justify-content-center">
+    <div class="col-8">
+        <form name="editForm" role="form" novalidate (ngSubmit)="save()" [formGroup]="editForm">
+            <h2 id="jhi-kyc-transactions-heading" jhiTranslate="saibDigitalWalletApp.kycTransactions.home.createOrEditLabel">Create or edit a Kyc Transactions</h2>
+
+            <div>
+                <jhi-alert-error></jhi-alert-error>
+
+                <div class="form-group" [hidden]="!editForm.get('id')!.value">
+                    <label for="id" jhiTranslate="global.field.id">ID</label>
+                    <input type="text" class="form-control" id="id" name="id" formControlName="id" readonly />
+                </div>
+
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="saibDigitalWalletApp.kycTransactions.creditCount" for="field_creditCount">Credit Count</label>
+                    <input type="number" class="form-control" name="creditCount" id="field_creditCount"
+                           formControlName="creditCount"/>
+                </div>
+
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="saibDigitalWalletApp.kycTransactions.creditAmount" for="field_creditAmount">Credit Amount</label>
+                    <input type="number" class="form-control" name="creditAmount" id="field_creditAmount"
+                           formControlName="creditAmount"/>
+                </div>
+
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="saibDigitalWalletApp.kycTransactions.debitCount" for="field_debitCount">Debit Count</label>
+                    <input type="number" class="form-control" name="debitCount" id="field_debitCount"
+                           formControlName="debitCount"/>
+                </div>
+
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="saibDigitalWalletApp.kycTransactions.debitAmount" for="field_debitAmount">Debit Amount</label>
+                    <input type="number" class="form-control" name="debitAmount" id="field_debitAmount"
+                           formControlName="debitAmount"/>
+                </div>
+
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="saibDigitalWalletApp.kycTransactions.remittanceCount" for="field_remittanceCount">Remittance Count</label>
+                    <input type="number" class="form-control" name="remittanceCount" id="field_remittanceCount"
+                           formControlName="remittanceCount"/>
+                </div>
+
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="saibDigitalWalletApp.kycTransactions.remittanceAmount" for="field_remittanceAmount">Remittance Amount</label>
+                    <input type="number" class="form-control" name="remittanceAmount" id="field_remittanceAmount"
+                           formControlName="remittanceAmount"/>
+                </div>
+
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="saibDigitalWalletApp.kycTransactions.kycTransactions" for="field_kycTransactions">Kyc Transactions</label>
+                    <select class="form-control" id="field_kycTransactions" name="kycTransactions" formControlName="kycTransactions">
+                        <option [ngValue]="null"></option>
+                        <option [ngValue]="kycOption.id === editForm.get('kycTransactions')!.value?.id ? editForm.get('kycTransactions')!.value : kycOption" *ngFor="let kycOption of kyctransactions; trackBy: trackById">{{ kycOption.id }}</option>
+                    </select>
+                </div>
+            </div>
+
+            <div>
+                <button type="button" id="cancel-save" class="btn btn-secondary" (click)="previousState()">
+                    <fa-icon icon="ban"></fa-icon>&nbsp;<span jhiTranslate="entity.action.cancel">Cancel</span>
+                </button>
+
+                <button type="submit" id="save-entity" [disabled]="editForm.invalid || isSaving" class="btn btn-primary">
+                    <fa-icon icon="save"></fa-icon>&nbsp;<span jhiTranslate="entity.action.save">Save</span>
+                </button>
+            </div>
+        </form>
+    </div>
+</div>

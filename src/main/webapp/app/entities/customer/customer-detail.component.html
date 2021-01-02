@@ -1,0 +1,108 @@
+<div class="row justify-content-center">
+    <div class="col-8">
+        <div *ngIf="customer">
+            <h2><span jhiTranslate="saibDigitalWalletApp.customer.detail.title">Customer</span> {{ customer.id }}</h2>
+
+            <hr>
+
+            <jhi-alert-error></jhi-alert-error>
+
+            <dl class="row-md jh-entity-details">
+                <dt><span jhiTranslate="saibDigitalWalletApp.customer.nationalIdentityNumber">National Identity Number</span></dt>
+                <dd>
+                    <span>{{ customer.nationalIdentityNumber }}</span>
+                </dd>
+                <dt><span jhiTranslate="saibDigitalWalletApp.customer.idType">Id Type</span></dt>
+                <dd>
+                    <span>{{ customer.idType }}</span>
+                </dd>
+                <dt><span jhiTranslate="saibDigitalWalletApp.customer.dateOfBirth">Date Of Birth</span></dt>
+                <dd>
+                    <span>{{ customer.dateOfBirth }}</span>
+                </dd>
+                <dt><span jhiTranslate="saibDigitalWalletApp.customer.mobilePhoneNumber">Mobile Phone Number</span></dt>
+                <dd>
+                    <span>{{ customer.mobilePhoneNumber }}</span>
+                </dd>
+                <dt><span jhiTranslate="saibDigitalWalletApp.customer.agentVerificationNumber">Agent Verification Number</span></dt>
+                <dd>
+                    <span>{{ customer.agentVerificationNumber }}</span>
+                </dd>
+                <dt><span jhiTranslate="saibDigitalWalletApp.customer.email">Email</span></dt>
+                <dd>
+                    <span>{{ customer.email }}</span>
+                </dd>
+                <dt><span jhiTranslate="saibDigitalWalletApp.customer.language">Language</span></dt>
+                <dd>
+                    <span>{{ customer.language }}</span>
+                </dd>
+                <dt><span jhiTranslate="saibDigitalWalletApp.customer.name">Name</span></dt>
+                <dd>
+                    <span>{{ customer.name }}</span>
+                </dd>
+                <dt><span jhiTranslate="saibDigitalWalletApp.customer.customerNumber">Customer Number</span></dt>
+                <dd>
+                    <span>{{ customer.customerNumber }}</span>
+                </dd>
+                <dt><span jhiTranslate="saibDigitalWalletApp.customer.firstNameArabic">First Name Arabic</span></dt>
+                <dd>
+                    <span>{{ customer.firstNameArabic }}</span>
+                </dd>
+                <dt><span jhiTranslate="saibDigitalWalletApp.customer.fatherNameArabic">Father Name Arabic</span></dt>
+                <dd>
+                    <span>{{ customer.fatherNameArabic }}</span>
+                </dd>
+                <dt><span jhiTranslate="saibDigitalWalletApp.customer.grandFatherNameArabic">Grand Father Name Arabic</span></dt>
+                <dd>
+                    <span>{{ customer.grandFatherNameArabic }}</span>
+                </dd>
+                <dt><span jhiTranslate="saibDigitalWalletApp.customer.grandFatherNameEnglish">Grand Father Name English</span></dt>
+                <dd>
+                    <span>{{ customer.grandFatherNameEnglish }}</span>
+                </dd>
+                <dt><span jhiTranslate="saibDigitalWalletApp.customer.placeOfBirth">Place Of Birth</span></dt>
+                <dd>
+                    <span>{{ customer.placeOfBirth }}</span>
+                </dd>
+                <dt><span jhiTranslate="saibDigitalWalletApp.customer.idIssueDate">Id Issue Date</span></dt>
+                <dd>
+                    <span>{{ customer.idIssueDate }}</span>
+                </dd>
+                <dt><span jhiTranslate="saibDigitalWalletApp.customer.idExpiryDate">Id Expiry Date</span></dt>
+                <dd>
+                    <span>{{ customer.idExpiryDate }}</span>
+                </dd>
+                <dt><span jhiTranslate="saibDigitalWalletApp.customer.maritalStatus">Marital Status</span></dt>
+                <dd>
+                    <span>{{ customer.maritalStatus }}</span>
+                </dd>
+                <dt><span jhiTranslate="saibDigitalWalletApp.customer.customerId">Customer Id</span></dt>
+                <dd>
+                    <span>{{ customer.customerId }}</span>
+                </dd>
+                <dt><span jhiTranslate="saibDigitalWalletApp.customer.profileStatus">Profile Status</span></dt>
+                <dd>
+                    <span>{{ customer.profileStatus }}</span>
+                </dd>
+                <dt><span jhiTranslate="saibDigitalWalletApp.customer.wallet">Wallet</span></dt>
+                <dd>
+                    <div *ngIf="customer.wallet">
+                        <a [routerLink]="['/wallet', customer.wallet?.id, 'view']">{{ customer.wallet?.id }}</a>
+                    </div>
+                </dd>
+            </dl>
+
+            <button type="submit"
+                    (click)="previousState()"
+                    class="btn btn-info">
+                <fa-icon icon="arrow-left"></fa-icon>&nbsp;<span jhiTranslate="entity.action.back">Back</span>
+            </button>
+
+            <button type="button"
+                    [routerLink]="['/customer', customer.id, 'edit']"
+                    class="btn btn-primary">
+                <fa-icon icon="pencil-alt"></fa-icon>&nbsp;<span jhiTranslate="entity.action.edit">Edit</span>
+            </button>
+        </div>
+    </div>
+</div>

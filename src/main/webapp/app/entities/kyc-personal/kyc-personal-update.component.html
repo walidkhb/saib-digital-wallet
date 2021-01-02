@@ -1,0 +1,58 @@
+<div class="row justify-content-center">
+    <div class="col-8">
+        <form name="editForm" role="form" novalidate (ngSubmit)="save()" [formGroup]="editForm">
+            <h2 id="jhi-kyc-personal-heading" jhiTranslate="saibDigitalWalletApp.kycPersonal.home.createOrEditLabel">Create or edit a Kyc Personal</h2>
+
+            <div>
+                <jhi-alert-error></jhi-alert-error>
+
+                <div class="form-group" [hidden]="!editForm.get('id')!.value">
+                    <label for="id" jhiTranslate="global.field.id">ID</label>
+                    <input type="text" class="form-control" id="id" name="id" formControlName="id" readonly />
+                </div>
+
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="saibDigitalWalletApp.kycPersonal.primarySource" for="field_primarySource">Primary Source</label>
+                    <input type="text" class="form-control" name="primarySource" id="field_primarySource"
+                           formControlName="primarySource"/>
+                </div>
+
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="saibDigitalWalletApp.kycPersonal.primaryAmount" for="field_primaryAmount">Primary Amount</label>
+                    <input type="number" class="form-control" name="primaryAmount" id="field_primaryAmount"
+                           formControlName="primaryAmount"/>
+                </div>
+
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="saibDigitalWalletApp.kycPersonal.pecondarySource" for="field_pecondarySource">Pecondary Source</label>
+                    <input type="text" class="form-control" name="pecondarySource" id="field_pecondarySource"
+                           formControlName="pecondarySource"/>
+                </div>
+
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="saibDigitalWalletApp.kycPersonal.pecondaryAmount" for="field_pecondaryAmount">Pecondary Amount</label>
+                    <input type="number" class="form-control" name="pecondaryAmount" id="field_pecondaryAmount"
+                           formControlName="pecondaryAmount"/>
+                </div>
+
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="saibDigitalWalletApp.kycPersonal.kycPersonal" for="field_kycPersonal">Kyc Personal</label>
+                    <select class="form-control" id="field_kycPersonal" name="kycPersonal" formControlName="kycPersonal">
+                        <option [ngValue]="null"></option>
+                        <option [ngValue]="kycOption.id === editForm.get('kycPersonal')!.value?.id ? editForm.get('kycPersonal')!.value : kycOption" *ngFor="let kycOption of kycpersonals; trackBy: trackById">{{ kycOption.id }}</option>
+                    </select>
+                </div>
+            </div>
+
+            <div>
+                <button type="button" id="cancel-save" class="btn btn-secondary" (click)="previousState()">
+                    <fa-icon icon="ban"></fa-icon>&nbsp;<span jhiTranslate="entity.action.cancel">Cancel</span>
+                </button>
+
+                <button type="submit" id="save-entity" [disabled]="editForm.invalid || isSaving" class="btn btn-primary">
+                    <fa-icon icon="save"></fa-icon>&nbsp;<span jhiTranslate="entity.action.save">Save</span>
+                </button>
+            </div>
+        </form>
+    </div>
+</div>
