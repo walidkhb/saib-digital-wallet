@@ -1,0 +1,27 @@
+{
+  "saibDigitalWalletApp": {
+    "kycPersonal": {
+      "home": {
+        "title": "Kyc Personals",
+        "createLabel": "Create a new Kyc Personal",
+        "createOrEditLabel": "Create or edit a Kyc Personal",
+        "search": "Search for Kyc Personal",
+        "notFound": "No Kyc Personals found"
+      },
+      "created": "A new Kyc Personal is created with identifier {{ param }}",
+      "updated": "A Kyc Personal is updated with identifier {{ param }}",
+      "deleted": "A Kyc Personal is deleted with identifier {{ param }}",
+      "delete": {
+        "question": "Are you sure you want to delete Kyc Personal {{ id }}?"
+      },
+      "detail": {
+        "title": "Kyc Personal"
+      },
+      "primarySource": "Primary Source",
+      "primaryAmount": "Primary Amount",
+      "pecondarySource": "Pecondary Source",
+      "pecondaryAmount": "Pecondary Amount",
+      "kycPersonal": "Kyc Personal"
+    }
+  }
+}

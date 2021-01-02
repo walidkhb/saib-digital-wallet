@@ -1,0 +1,40 @@
+{
+  "name": "Refund",
+  "fields": [
+    {
+      "fieldName": "amount",
+      "fieldType": "BigDecimal"
+    },
+    {
+      "fieldName": "currency",
+      "fieldType": "String"
+    },
+    {
+      "fieldName": "narativeLine1",
+      "fieldType": "String"
+    },
+    {
+      "fieldName": "narativeLine2",
+      "fieldType": "String"
+    }
+  ],
+  "relationships": [
+    {
+      "relationshipType": "one-to-many",
+      "otherEntityName": "wallet",
+      "otherEntityRelationshipName": "refund",
+      "relationshipName": "refund"
+    }
+  ],
+  "changelogDate": "20210102082449",
+  "entityTableName": "refund",
+  "dto": "no",
+  "pagination": "no",
+  "service": "no",
+  "jpaMetamodelFiltering": false,
+  "fluentMethods": true,
+  "readOnly": false,
+  "embedded": false,
+  "clientRootFolder": "",
+  "applications": "*"
+}
